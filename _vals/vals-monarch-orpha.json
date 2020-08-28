@@ -1,0 +1,532 @@
+{
+  "preds": [
+    {
+      "name": "ORPHA:1000",
+      "desc": "Ocular albinism with late-onset sensorineural deafness",
+      "real": [
+        "HP:0000407",
+        "HP:0000486",
+        "HP:0000505",
+        "HP:0000613",
+        "HP:0000639",
+        "HP:0001107"
+      ],
+      "sims": [
+        [
+          "HP:0000365",
+          "HP:0000486",
+          "HP:0000505",
+          "HP:0000613",
+          "HP:0012547",
+          "HP:0007730",
+          "HP:0005237",
+          "HP:0030067",
+          "HP:0012098"
+        ],
+        [
+          "HP:0000407",
+          "HP:0000549",
+          "HP:0000505",
+          "HP:0000613",
+          "HP:0000639",
+          "HP:0001107",
+          "HP:0009059",
+          "HP:0000076",
+          "HP:0006361"
+        ],
+        [
+          "HP:0000407",
+          "HP:0000549",
+          "HP:0000504",
+          "HP:0000708",
+          "HP:0000639",
+          "HP:0001098",
+          "HP:0008457",
+          "HP:0030166",
+          "HP:0007658"
+        ]
+      ],
+      "pred_real": [
+        {
+          "r": 1,
+          "s": 101.0,
+          "x": "MONDO:0010390"
+        },
+        {
+          "r": 2,
+          "s": 97.0,
+          "x": "MONDO:0017304"
+        },
+        {
+          "r": 2,
+          "s": 97.0,
+          "x": "HGNC:20145"
+        },
+        {
+          "r": 3,
+          "s": 96.0,
+          "x": "MONDO:0021019"
+        },
+        {
+          "r": 3,
+          "s": 96.0,
+          "x": "MONDO:0018138"
+        }
+      ],
+      "pred_sims": [
+        [
+          {
+            "r": 1,
+            "s": 72.0,
+            "x": "MONDO:0010835"
+          },
+          {
+            "r": 1,
+            "s": 72.0,
+            "x": "MONDO:0010390"
+          },
+          {
+            "r": 2,
+            "s": 71.0,
+            "x": "HGNC:20145"
+          },
+          {
+            "r": 3,
+            "s": 70.0,
+            "x": "MONDO:0021019"
+          },
+          {
+            "r": 3,
+            "s": 70.0,
+            "x": "MONDO:0011749"
+          },
+          {
+            "r": 3,
+            "s": 70.0,
+            "x": "MONDO:0008745"
+          },
+          {
+            "r": 3,
+            "s": 70.0,
+            "x": "MONDO:0008746"
+          },
+          {
+            "r": 3,
+            "s": 70.0,
+            "x": "MONDO:0018910"
+          },
+          {
+            "r": 4,
+            "s": 69.0,
+            "x": "MONDO:0011683"
+          },
+          {
+            "r": 4,
+            "s": 69.0,
+            "x": "MONDO:0017304"
+          }
+        ],
+        [
+          {
+            "r": 1,
+            "s": 74.0,
+            "x": "MONDO:0010390"
+          },
+          {
+            "r": 2,
+            "s": 72.0,
+            "x": "MONDO:0021019"
+          },
+          {
+            "r": 2,
+            "s": 72.0,
+            "x": "MONDO:0017304"
+          },
+          {
+            "r": 2,
+            "s": 72.0,
+            "x": "HGNC:20145"
+          },
+          {
+            "r": 2,
+            "s": 72.0,
+            "x": "MONDO:0013590"
+          },
+          {
+            "r": 3,
+            "s": 71.0,
+            "x": "MONDO:0008745"
+          },
+          {
+            "r": 3,
+            "s": 71.0,
+            "x": "MONDO:0018138"
+          },
+          {
+            "r": 4,
+            "s": 70.0,
+            "x": "MONDO:0012185"
+          },
+          {
+            "r": 5,
+            "s": 69.0,
+            "x": "MONDO:0013591"
+          },
+          {
+            "r": 5,
+            "s": 69.0,
+            "x": "MONDO:0014127"
+          }
+        ],
+        [
+          {
+            "r": 1,
+            "s": 76.0,
+            "x": "MONDO:0008664"
+          },
+          {
+            "r": 2,
+            "s": 74.0,
+            "x": "HGNC:1482"
+          },
+          {
+            "r": 3,
+            "s": 66.0,
+            "x": "MONDO:0007471"
+          },
+          {
+            "r": 4,
+            "s": 62.0,
+            "x": "HGNC:6391"
+          },
+          {
+            "r": 4,
+            "s": 62.0,
+            "x": "MONDO:0011335"
+          },
+          {
+            "r": 5,
+            "s": 58.0,
+            "x": ":MONARCH:c000018"
+          },
+          {
+            "r": 6,
+            "s": 57.0,
+            "x": "MONDO:0009979"
+          },
+          {
+            "r": 6,
+            "s": 57.0,
+            "x": "MONDO:0010390"
+          },
+          {
+            "r": 7,
+            "s": 56.0,
+            "x": "HGNC:9217"
+          },
+          {
+            "r": 7,
+            "s": 56.0,
+            "x": "HGNC:7801"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "ORPHA:100006",
+      "desc": "ABeta amyloidosis, Dutch type",
+      "real": [
+        "HP:0000708",
+        "HP:0000726",
+        "HP:0001250",
+        "HP:0001297",
+        "HP:0001342",
+        "HP:0002315",
+        "HP:0002514",
+        "HP:0011970",
+        "HP:0100613"
+      ],
+      "sims": [
+        [
+          "HP:0012638",
+          "HP:0000726",
+          "HP:0001250",
+          "HP:0100659",
+          "HP:0002170",
+          "HP:0012638",
+          "HP:0002514",
+          "HP:0011034",
+          "HP:0100613",
+          "HP:0009577",
+          "HP:0005093",
+          "HP:0006067",
+          "HP:0004232"
+        ],
+        [
+          "HP:0012638",
+          "HP:0001268",
+          "HP:0001250",
+          "HP:0100659",
+          "HP:0001342",
+          "HP:0002315",
+          "HP:0002514",
+          "HP:0011970",
+          "HP:0100613",
+          "HP:0011122",
+          "HP:0000108",
+          "HP:0004232",
+          "HP:0025357"
+        ],
+        [
+          "HP:0000708",
+          "HP:0000726",
+          "HP:0001250",
+          "HP:0001297",
+          "HP:0001342",
+          "HP:0002315",
+          "HP:0010766",
+          "HP:0011970",
+          "HP:0100613",
+          "HP:0001816",
+          "HP:0001194",
+          "HP:0009843",
+          "HP:0020096"
+        ]
+      ],
+      "pred_real": [
+        {
+          "r": 1,
+          "s": 100.0,
+          "x": "MONDO:0015033"
+        },
+        {
+          "r": 2,
+          "s": 98.0,
+          "x": "MONDO:0007098"
+        },
+        {
+          "r": 3,
+          "s": 96.0,
+          "x": "MONDO:0011583"
+        },
+        {
+          "r": 4,
+          "s": 92.0,
+          "x": "HGNC:2475"
+        },
+        {
+          "r": 5,
+          "s": 81.0,
+          "x": "MONDO:0008306"
+        }
+      ],
+      "pred_sims": [
+        [
+          {
+            "r": 1,
+            "s": 72.0,
+            "x": "MONDO:0007221"
+          },
+          {
+            "r": 2,
+            "s": 68.0,
+            "x": "MONDO:0009582"
+          },
+          {
+            "r": 3,
+            "s": 67.0,
+            "x": "MONDO:0019679"
+          },
+          {
+            "r": 4,
+            "s": 66.0,
+            "x": "HGNC:5136"
+          },
+          {
+            "r": 4,
+            "s": 66.0,
+            "x": "MONDO:0007216"
+          },
+          {
+            "r": 4,
+            "s": 66.0,
+            "x": "MONDO:0014032"
+          },
+          {
+            "r": 4,
+            "s": 66.0,
+            "x": "HGNC:4220"
+          },
+          {
+            "r": 5,
+            "s": 65.0,
+            "x": "MONDO:0007218"
+          },
+          {
+            "r": 6,
+            "s": 64.0,
+            "x": "MONDO:0012271"
+          },
+          {
+            "r": 6,
+            "s": 64.0,
+            "x": "HGNC:35126"
+          }
+        ],
+        [
+          {
+            "r": 1,
+            "s": 80.0,
+            "x": "MONDO:0015033"
+          },
+          {
+            "r": 2,
+            "s": 77.0,
+            "x": "MONDO:0007098"
+          },
+          {
+            "r": 3,
+            "s": 76.0,
+            "x": "MONDO:0011583"
+          },
+          {
+            "r": 4,
+            "s": 73.0,
+            "x": "HGNC:2475"
+          },
+          {
+            "r": 5,
+            "s": 70.0,
+            "x": "MONDO:0008306"
+          },
+          {
+            "r": 6,
+            "s": 68.0,
+            "x": "MONDO:0009697"
+          },
+          {
+            "r": 7,
+            "s": 67.0,
+            "x": "MONDO:0011743"
+          },
+          {
+            "r": 7,
+            "s": 67.0,
+            "x": "HGNC:21576"
+          },
+          {
+            "r": 8,
+            "s": 66.0,
+            "x": "MONDO:0007297"
+          },
+          {
+            "r": 8,
+            "s": 66.0,
+            "x": "HGNC:3413"
+          }
+        ],
+        [
+          {
+            "r": 1,
+            "s": 86.0,
+            "x": "MONDO:0015033"
+          },
+          {
+            "r": 2,
+            "s": 82.0,
+            "x": "MONDO:0007098"
+          },
+          {
+            "r": 3,
+            "s": 81.0,
+            "x": "MONDO:0011583"
+          },
+          {
+            "r": 4,
+            "s": 79.0,
+            "x": "HGNC:2475"
+          },
+          {
+            "r": 5,
+            "s": 71.0,
+            "x": "MONDO:0012594"
+          },
+          {
+            "r": 5,
+            "s": 71.0,
+            "x": "HGNC:620"
+          },
+          {
+            "r": 5,
+            "s": 71.0,
+            "x": "MONDO:0008306"
+          },
+          {
+            "r": 6,
+            "s": 70.0,
+            "x": "MONDO:0011743"
+          },
+          {
+            "r": 6,
+            "s": 70.0,
+            "x": "MONDO:0007297"
+          },
+          {
+            "r": 7,
+            "s": 69.0,
+            "x": "HGNC:5961"
+          }
+        ]
+      ]
+    }
+  ],
+  "conds": {
+    "MONDO:0010390": "ocular albinism with late-onset sensorineural deafness",
+    "MONDO:0017304": "ocular albinism (disease)",
+    "HGNC:20145": "GPR143",
+    "MONDO:0021019": "X-linked recessive ocular albinism",
+    "MONDO:0018138": "ocular albinism with congenital sensorineural deafness",
+    "MONDO:0010835": "pterygium colli-intellectual disability-digital anomalies syndrome",
+    "MONDO:0011749": "oculocutaneous albinism type 1B",
+    "MONDO:0008745": "oculocutaneous albinism type 1A",
+    "MONDO:0008746": "oculocutaneous albinism type 2",
+    "MONDO:0018910": "oculocutaneous albinism",
+    "MONDO:0011683": "oculocutaneous albinism type 4",
+    "MONDO:0013590": "Stickler syndrome, type 4",
+    "MONDO:0012185": "spondylometaphyseal dysplasia, A4 type",
+    "MONDO:0013591": "epiphyseal dysplasia, multiple, 6",
+    "MONDO:0014127": "oculocutaneous albinism type 5",
+    "MONDO:0008664": "autosomal dominant neovascular inflammatory vitreoretinopathy",
+    "HGNC:1482": "CAPN5",
+    "MONDO:0007471": "Doyne honeycomb retinal dystrophy",
+    "HGNC:6391": "KIF22",
+    "MONDO:0011335": "spondyloepimetaphyseal dysplasia with multiple dislocations",
+    ":MONARCH:c000018": "MONARCH:c000018",
+    "MONDO:0009979": "reticular dystrophy of the retinal pigment epithelium",
+    "HGNC:9217": "POU3F4",
+    "HGNC:7801": "TONSL",
+    "MONDO:0015033": "ABeta amyloidosis, dutch type",
+    "MONDO:0007098": "ACys amyloidosis",
+    "MONDO:0011583": "cerebral amyloid angiopathy, APP-related",
+    "HGNC:2475": "CST3",
+    "MONDO:0008306": "ABri amyloidosis",
+    "MONDO:0007221": "brachydactyly type C",
+    "MONDO:0009582": "Mietens syndrome",
+    "MONDO:0019679": "brachydactyly type A7",
+    "HGNC:5136": "HOXD13",
+    "MONDO:0007216": "brachydactyly type A2",
+    "MONDO:0014032": "brachydactyly type A1C",
+    "HGNC:4220": "GDF5",
+    "MONDO:0007218": "brachydactyly type A4",
+    "MONDO:0012271": "mesoaxial synostotic syndactyly with phalangeal reduction",
+    "HGNC:35126": "BHLHA9",
+    "MONDO:0009697": "Lafora disease",
+    "MONDO:0011743": "Alzheimer disease 4",
+    "HGNC:21576": "NHLRC1",
+    "MONDO:0007297": "ADan amyloidosis",
+    "HGNC:3413": "EPM2A",
+    "MONDO:0012594": "complement factor I deficiency",
+    "HGNC:620": "APP",
+    "HGNC:5961": "IKBKG"
+  }
+}
