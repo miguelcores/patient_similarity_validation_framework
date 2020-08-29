@@ -1,7 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d27d2a1-51d4-467d-8a80-ff6eac17ce1d" name="Default Changelist" comment="" />
+    <list default="true" id="5d27d2a1-51d4-467d-8a80-ff6eac17ce1d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataGenerators/patient2id.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Notebooks/.ipynb_checkpoints/Patient similarities-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Notebooks/.ipynb_checkpoints/plot_roc-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Notebooks/Patient similarities.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Notebooks/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_data/patients/decipher_patient_embeddings.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_data/patients/decipher_patient_sims.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_data/patients/decipher_patient_sims.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_data/patients/decipher_patients_disease.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_data/patients/decipher_patients_phenotype.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_data/patients/test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/generate_disease_prototypes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/hpo_lookup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/patient_ic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/patient_similarity/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/patient_similarity/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/patient_similarity/disease.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/patient_similarity/hpo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/patient_similarity/hpoic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/patient_similarity/orphanet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/patient_similarity/patient.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/plot_im_scores.R" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-similarity/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenPatientEmbeddings.py" beforeDir="false" afterPath="$PROJECT_DIR$/GenPatientEmbeddings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/.ipynb_checkpoints/debugging with things in ram -checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/.ipynb_checkpoints/debugging with things in ram -checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/debugging with things in ram .ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/debugging with things in ram .ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/models.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/models.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tools/patient_emu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/patient_emu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/pruebaEmb.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/pruebaEmb.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_emu/emu-decipher.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-decipher.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_emu/emu-omim.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-omim.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_emu/emu-orpha.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-orpha.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/data/1000gp_gene_loads.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/data/en_product1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/data/en_product2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/data/en_product6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/data/hp.obo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/data/negative_phenotype_annotation.tab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/data/phenotype_annotation.tab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/patient_similarity/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient-similarity/patient_similarity/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/test/test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/test/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-similarity/test/test.out" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,23 +64,18 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1gdUp4Z6KDL5TlEFzYktBOkPyxT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/_emu" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../patient-similarity" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\micores\Google Drive\tfg\repos\TFG\_emu" />
-      <recent name="C:\Users\micores\Google Drive\tfg\repos\TFG\_data" />
-      <recent name="C:\Users\micores\Google Drive\tfg\repos\TFG" />
-      <recent name="C:\Users\micores\Google Drive\tfg\repos\TFG\_data\graph" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\micores\Google Drive\tfg\repos\TFG\DataGenerators" />
-      <recent name="C:\Users\micores\Google Drive\tfg\repos\TFG\_data\emb" />
-      <recent name="C:\Users\micores\Google Drive\tfg\repos\TFG\_data\graph" />
-      <recent name="C:\Users\micores\Google Drive\tfg\repos\TFG" />
+      <recent name="C:\Users\micores\Google Drive\tfg\repos\patient2vec\_data\patients" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -46,8 +90,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.GenGraph">
-    <configuration name="GenEmbeddings" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.GenPatientEmbeddings">
+    <configuration name="GenPatientEmbeddings" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TFG" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -59,49 +103,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\micores\Google Drive\tfg\repos\TFG\GenSymptomEmbeddings.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="GenGraph" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="TFG" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GenGraph.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="GenPatient'sEmbeddings" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="TFG" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\micores\Google Drive\tfg\repos\TFG\GenPatientEmbeddings.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GenPatientEmbeddings.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,7 +154,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="patient2id" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TFG" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -164,49 +166,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/node2vec/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="parser_hpo" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="TFG" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Parsers/parser_hpo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="things" type="PythonConfigurationType" factoryName="Python">
-      <module name="TFG" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/things.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataGenerators/patient2id.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -216,21 +176,15 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.things" />
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.GenGraph" />
-      <item itemvalue="Python.GenPatient'sEmbeddings" />
-      <item itemvalue="Python.parser_hpo" />
+      <item itemvalue="Python.patient2id" />
+      <item itemvalue="Python.GenPatientEmbeddings" />
       <item itemvalue="Python.GenPatients" />
-      <item itemvalue="Python.GenEmbeddings" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.GenGraph" />
-        <item itemvalue="Python.GenEmbeddings" />
-        <item itemvalue="Python.GenPatient'sEmbeddings" />
+        <item itemvalue="Python.GenPatientEmbeddings" />
+        <item itemvalue="Python.patient2id" />
         <item itemvalue="Python.GenPatients" />
-        <item itemvalue="Python.parser_hpo" />
       </list>
     </recent_temporary>
   </component>
@@ -245,5 +199,18 @@
       <updated>1598444977870</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

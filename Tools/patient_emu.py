@@ -51,7 +51,7 @@ class PatientEmulator():
         if describe: cond = self.describe(cond)
         return cond
 
-    def emulate_conditions(self, source, count=3, describe=False):
+    def emulate_conditions(self, source, count=3, describe=False, patient_file=True):
         conds = {}
         for name in self.anns.get_source(source):
             real = self.get_condition(source, name, describe=describe)
@@ -64,6 +64,7 @@ class PatientEmulator():
                 emul = self.emulate_condition(source, name, describe=describe)
                 cond['sims'].append(emul['hpos'])
             conds[name] = cond
+
         return conds
 
     def describe(self, cond):

@@ -1,32 +1,28 @@
-import pandas as pd
-import json
-import numpy as np
+import csv, time
 
 from Entities import Hpo, HpoVecs
-from Common import save_object, load_object
+from Common import save_object
 
-def get_patient_embedding_average(phenotype):
-    hpo = Hpo()
-    hpoVecs = HpoVecs().vecs
+start = time.time()
+
+def get_patient_embedding_average(phenotype, hpo, hpo_vectors):
     lenght = len(phenotype)
     suma = 0
     for symptom in phenotype:
-        id = hpo.id(symptom)
-        vector_id = hpoVecs[id]
+        hpo_id = hpo.id(symptom)
+        vector_id = hpo_vectors[hpo_id]
         suma += vector_id
     return suma/lenght
 
 
-with open('./_emu/emu-decipher_un_decimo.json') as json_file:
-    patient_sims = json.load(json_file)
+with open('./_data/patients/decipher_patients_phenotype.csv') as csv_file:
+    patient_sims = csv.reader(csv_file)
+    hpo = Hpo()
+    hpo_vectors = HpoVecs().vecs
+    patients = {}
+    for line in patient_sims:
+        patients[line[0]] = get_patient_embedding_average(line[1:], hpo, hpo_vectors)
 
-patients = []
-for disease in patient_sims:
-    for phenotype in patient_sims[disease]['sims']:
-        patients.append({
-         "disease-identifier": disease,
-         "disease-name": patient_sims[disease]['desc'],
-         "patient_embedding": get_patient_embedding_average(phenotype)
-            })
+save_object(patients, './_data/patients/decipher_patient_embeddings.pkl')
 
-save_object(patients, './_data/pruebaEmb.pkl')
+print(time.time()-start)
