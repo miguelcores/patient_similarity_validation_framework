@@ -1,0 +1,5 @@
+*.ini
+*.idea
+ValMonarch.py
+ValEmbedding.py
+_vals
