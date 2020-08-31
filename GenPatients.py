@@ -3,8 +3,8 @@ import json
 
 from Tools import PatientEmulator
 
-def generate_patients(path='_emu', count=3, ancestor_prob=0.5, noise_prob=0):
-    emu = PatientEmulator(ancestor_prob=ancestor_prob, noise_prob=noise_prob)
+def generate_patients(path='_emu', count=3, lamb = 1, ancestor_prob=0.5, noise_prob=0):
+    emu = PatientEmulator(lamb=lamb, ancestor_prob=ancestor_prob, noise_prob=noise_prob)
 
     conds = emu.emulate_conditions('DECIPHER')
     with open(os.path.join(path, 'emu-decipher.json'), 'w') as fp:

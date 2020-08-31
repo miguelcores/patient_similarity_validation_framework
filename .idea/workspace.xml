@@ -2,23 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d27d2a1-51d4-467d-8a80-ff6eac17ce1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commands.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notebooks/Patient similarities.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/Patient similarities.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/patients/decipher_patient_sims.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/decipher_patient_sims.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/data/1000gp_gene_loads.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/data/en_product1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/data/en_product2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/data/en_product6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/data/hp.obo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/data/negative_phenotype_annotation.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/data/phenotype_annotation.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/patient_similarity/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/patient_similarity/patient_similarity/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/test/test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/test/test.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient_similarity/test/test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenPatients.py" beforeDir="false" afterPath="$PROJECT_DIR$/GenPatients.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/debugging with things in ram .ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/debugging with things in ram .ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/1000gp_gene_loads.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/en_product1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/en_product2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/en_product6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/hp.obo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/negative_phenotype_annotation.tab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/phenotype_annotation.tab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/generate_disease_prototypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/PatientSimilarities/generate_disease_prototypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/hpo_lookup.py" beforeDir="false" afterPath="$PROJECT_DIR$/PatientSimilarities/hpo_lookup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/patient_ic.py" beforeDir="false" afterPath="$PROJECT_DIR$/PatientSimilarities/patient_ic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/patient_similarity/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/PatientSimilarities/patient_similarity/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tools/patient_emu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/patient_emu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_emu/emu-decipher.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-decipher.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_emu/emu-omim.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-omim.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_emu/emu-orpha.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-orpha.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/generate_disease_prototypes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/hpo_lookup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/patient_ic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/patient_similarity/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/patient_similarity/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/patient_similarity/disease.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/patient_similarity/hpo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/patient_similarity/hpoic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/patient_similarity/orphanet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/patient_similarity/patient.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/plot_im_scores.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient_similarity/setup.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,13 +54,13 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/patient_similarity" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gdUp4Z6KDL5TlEFzYktBOkPyxT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../patient-similarity_Pablo" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -59,7 +79,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.GenPatientEmbeddings">
+  <component name="RunManager" selected="Python.GenPatients">
     <configuration name="GenPatientEmbeddings" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TFG" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,9 +171,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GenPatients" />
         <item itemvalue="Python.GenPatientEmbeddings" />
         <item itemvalue="Python.patient2id" />
-        <item itemvalue="Python.GenPatients" />
       </list>
     </recent_temporary>
   </component>
