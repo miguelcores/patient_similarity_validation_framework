@@ -12,13 +12,13 @@ def compute_embedding_average(phenotype, hpo, hpo_vectors):
         suma += vector_id
     return suma/lenght
 
-def gen_patient_embeddings(source, exp_id):
+def gen_patient_embeddings(source, EXP_ID, exp_id):
     start = time.time()
 
     with open('./_data/patients/'+source+'_patients_phenotype.csv') as csv_file:
         patient_sims = csv.reader(csv_file)
         hpo = Hpo()
-        hpo_vectors = HpoVecs(exp_id).vecs
+        hpo_vectors = HpoVecs(EXP_ID, exp_id).vecs
         patients = {}
         for line in patient_sims:
             patients[line[0]] = compute_embedding_average(line[1:], hpo, hpo_vectors)

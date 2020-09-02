@@ -2,8 +2,8 @@ import os
 import numpy as np
 
 class HpoVecs():
-    def __init__(self, exp_id): #filename='_data/emb/hp-obo.emb'
-        self.filename = '_data/emb/hp-obo_'+exp_id+'.emb'
+    def __init__(self, EXP_ID, exp_id): #filename='_data/emb/hp-obo.emb'
+        self.filename = '_data/emb/hp-obo_'+EXP_ID+'_'+exp_id+'.emb'
         self.vecs = self.__load_vectors(self.filename)
 
     def __load_vectors(self, fn):

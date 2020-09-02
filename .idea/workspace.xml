@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d27d2a1-51d4-467d-8a80-ff6eac17ce1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MappingObjectsGenerators/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Notebooks/ExperimentResults.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/master.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Validation/experiment_results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataGenerators/hp-obo-translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/MappingObjectsGenerators/hp-obo-translator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataGenerators/patient2id.py" beforeDir="false" afterPath="$PROJECT_DIR$/MappingObjectsGenerators/patient2id.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entities/hpo_vecs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/hpo_vecs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GenPatientEmbeddings.py" beforeDir="false" afterPath="$PROJECT_DIR$/GenPatientEmbeddings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenPatients.py" beforeDir="false" afterPath="$PROJECT_DIR$/GenPatients.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenSymptomEmbeddings.py" beforeDir="false" afterPath="$PROJECT_DIR$/GenSymptomEmbeddings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/ExperimentResults.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Notebooks/Patient similarities.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/Patient similarities.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notebooks/debugging with things in ram .ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/debugging with things in ram .ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parsers/parser_hpo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parsers/parser_hpo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parsers/parser_phen_anns.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parsers/parser_phen_anns.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/1000gp_gene_loads.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/en_product1.xml" beforeDir="false" />
@@ -31,29 +23,15 @@
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tools/patient_emu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/patient_emu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/annotations.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/annotations/annotations.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/annotations_cache.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/annotations/annotations_cache.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/emb/hp-obo_prueba.emb" beforeDir="false" afterPath="$PROJECT_DIR$/_data/emb/hp-obo_prueba.emb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/emb/karate.emb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/emb/paperHpoSimulatedPatientsEmbeddings.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/emb/pruebaEmb.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/hp-obo-translator.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/hpo/hp-obo-translator.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/hp-obo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_data/hpo/hp-obo.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/hp.obo" beforeDir="false" afterPath="$PROJECT_DIR$/_data/hpo/hp.obo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/hp.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/hpo/hp.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/hpo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_data/hpo/hpo.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/hpo.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/hpo/hpo.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/hpo2int.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_data/hpo/hpo2int.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Validation/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/emb/hp-obo_0.emb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_data/patients/decipher_patient_embeddings.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/decipher_patient_embeddings.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_data/patients/decipher_patient_sims.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/decipher_patient_sims.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/patients/decipher_patients_disease.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/decipher_patients_disease.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_data/patients/decipher_patients_phenotype.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/decipher_patients_phenotype.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/phenotype_annotation.tab" beforeDir="false" afterPath="$PROJECT_DIR$/_data/annotations/phenotype_annotation.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/walks/walks.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/walks/walks.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_emu/emu-decipher.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-decipher.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_emu/emu-decipher_un_decimo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_emu/emu-omim.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-omim.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_emu/emu-orpha.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-orpha.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/commands.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/master.py" beforeDir="false" afterPath="$PROJECT_DIR$/master.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/things.py" beforeDir="false" afterPath="$PROJECT_DIR$/things.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,6 +58,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\micores\Google Drive\tfg\repos\patient2vec\Validation" />
       <recent name="C:\Users\micores\Google Drive\tfg\repos\patient2vec\_data\annotations" />
       <recent name="C:\Users\micores\Google Drive\tfg\repos\patient2vec\_data\hpo" />
       <recent name="C:\Users\micores\Google Drive\tfg\repos\patient2vec\_data\patients" />
@@ -119,27 +98,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="GenPatients" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="TFG" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GenPatients.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="GenSymptomEmbeddings" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TFG" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -153,6 +111,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GenSymptomEmbeddings.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ROC-AUC_experiment_results" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="TFG" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\micores\Google Drive\tfg\repos\patient2vec\Validation\experiment_results.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -225,19 +204,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.GenPatients" />
       <item itemvalue="Python.things" />
       <item itemvalue="Python.ExperimentResults" />
       <item itemvalue="Python.GenSymptomEmbeddings" />
       <item itemvalue="Python.master" />
+      <item itemvalue="Python.ROC-AUC_experiment_results" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.master" />
         <item itemvalue="Python.things" />
+        <item itemvalue="Python.ROC-AUC_experiment_results" />
         <item itemvalue="Python.GenSymptomEmbeddings" />
         <item itemvalue="Python.ExperimentResults" />
-        <item itemvalue="Python.GenPatients" />
       </list>
     </recent_temporary>
   </component>

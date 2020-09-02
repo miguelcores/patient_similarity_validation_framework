@@ -196,7 +196,7 @@ def compare_patients(hpoic, patient1, patient2, patient_embeddings, scores=None,
         out['jc_avg'] = sum([sum(row) for row in jcs]) / (len(jcs) * len(jcs[0]))
         out['jc_best_avg'] = sum([max(row) for row in jcs]) / len(jcs)
 
-    if not scores or 'cosine_similarity' in scores:
+    if not scores or 'cos_sim' in scores:
         emb1 = patient_embeddings[patient1.id]
         emb2 = patient_embeddings[patient2.id]
         cs = cosine_similarity([emb1, emb2])

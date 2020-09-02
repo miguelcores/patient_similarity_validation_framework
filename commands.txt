@@ -3,9 +3,11 @@ git branch -M master
 git push -u origin master
 
 
+python GenPatients.py count=1
 
 python -m patient_similarity --patient-file-format csv --log=INFO ../_data/patients/decipher_patients_phenotype.csv ../_data/hp.obo ../_data/phenotype_annotation.tab ../_data/patients/decipher_patient_embeddings.pkl ../_data/patients/decipher_patient_sims.pkl
 
+python -m patient_similarity --patient-file-format csv ../_data/patients/decipher_patients_phenotype.csv ../_data/hp.obo ../_data/phenotype_annotation.tab ../_data/patients/decipher_patient_embeddings.pkl ../_data/patients/decipher_patient_sims.pkl
 
 
 ---
