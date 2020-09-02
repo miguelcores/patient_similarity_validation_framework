@@ -6,7 +6,7 @@ from Common import TextParser, load_object, save_object, writeline
 # '_data/annotations.pkl'
 # '_data/phenotype_annotation.tab'
 class PhenotypeAnnotationsParser():
-    def __init__(self, fn='_data/phenotype_annotation.tab'):
+    def __init__(self, fn='_data/annotations/phenotype_annotation.tab'):
         ext = fn[-4:].lower()
         if ext == '.tab':
             self.__parse(fn)
@@ -17,14 +17,14 @@ class PhenotypeAnnotationsParser():
 
     def __parse(self, fn):
         df = pd.read_csv(fn, sep='\t', low_memory=False)
-        df = df[['#disease-db', 'disease-identifier', 'disease-name', 'HPO-ID', 'frequencyHPO']]
+        df = df[['#disease-db', 'reference', 'disease-name', 'HPO-ID', 'frequencyHPO']]
         self.decipher = self.__get_annotations(df[df['#disease-db'] == 'DECIPHER'])
         self.orpha = self.__get_annotations(df[df['#disease-db'] == 'ORPHA'])
         self.omim = self.__get_annotations(df[df['#disease-db'] == 'OMIM'])
 
     def __get_annotations(self, df):
         anns = {}
-        gb = df.groupby('disease-identifier')
+        gb = df.groupby('reference')
         for name, group in gb:
             desc = group['disease-name'].values[0]
             hpos = group['HPO-ID'].tolist()

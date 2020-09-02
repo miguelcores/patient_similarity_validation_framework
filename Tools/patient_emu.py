@@ -6,12 +6,13 @@ from random import random
 from Parsers import HpoParser, PhenotypeAnnotationsParser
 
 class PatientEmulator():
-    def __init__(self, lamb=3, ancestor_prob=0.5, noise_prob=0.5):
+    def __init__(self, count=3, lamb=3, ancestor_prob=0.5, noise_prob=0.5):
         self.hpos = HpoParser()
         self.anns = PhenotypeAnnotationsParser()
         self.eligibles = list(self.__build_eligibles(self.hpos, self.anns))
         self.ancestor_prob = ancestor_prob
         self.lamb = lamb
+        self.count = count
         self.noise_prob = noise_prob
 
     def __build_eligibles(self, hpos, anns):
@@ -66,7 +67,7 @@ class PatientEmulator():
         if describe: cond = self.describe(cond)
         return cond
 
-    def emulate_conditions(self, source, count=3, describe=False, patient_file=True):
+    def emulate_conditions(self, source, describe=False):
         conds = {}
         for name in self.anns.get_source(source):
             real = self.get_condition(source, name, describe=describe)
@@ -75,7 +76,7 @@ class PatientEmulator():
                     'hpos': real['hpos'],
                     'sims': []
                 }
-            for n in range(count):
+            for n in range(self.count):
                 emul = self.emulate_condition(source, name, describe=describe)
                 unique_terms_in_phenotype = list(dict.fromkeys(emul['hpos']))
                 cond['sims'].append(unique_terms_in_phenotype)

@@ -6,7 +6,7 @@ from Common import TextParser, load_object, save_object, writeline
 # '_data/hp.obo'
 
 class HpoParser():
-    def __init__(self, fn='_data/hp.obo'):
+    def __init__(self, fn='_data/hpo/hp.obo'):
         ext = fn[-4:].lower()
         if ext == '.obo':
             self.hpos = self.__parse(fn)

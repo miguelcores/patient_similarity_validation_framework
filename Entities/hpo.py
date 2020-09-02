@@ -1,7 +1,7 @@
 from Common import load_object
 
 class Hpo():
-    def __init__(self, fn='_data/hp-obo-translator.pkl'):
+    def __init__(self, fn='_data/hpo/hp-obo-translator.pkl'):
         self.__load_pkl(fn)
 
     def __load_pkl(self, fn_pkl):

@@ -12,9 +12,12 @@ import networkx as nx
 from node2vec import node2vec
 from gensim.models import Word2Vec
 
+from Common import save_object
+
+# genEmbeddings(input='_data/graph/hp-obo.edgelist', output='_data/emb/hp-obo_prueba.emb')
 class genEmbeddings():
     def __init__(self, input, output, weighted=False, p=1, q=.05, window_size=10, num_walks=10,
-                 walk_length=80, dimensions=128, directed=False, workers=8, iter=1):
+                 walk_length=5, dimensions=128, directed=False, workers=8, iter=1):
         self.input = input
         self.output = output
         self.weighted = weighted
@@ -56,10 +59,9 @@ class genEmbeddings():
         '''
         # walks = [map(str, walk) for walk in walks] #py2
         walks = [list(map(str, walk)) for walk in walks]
+        save_object(walks, './_data/walks/walks.pkl')
         model = Word2Vec(walks, size=self.dimensions, window=self.window_size, min_count=0, sg=1, workers=self.workers, iter=self.iter)
         # model.save_word2vec_format(args.output) #deprecated
         model.wv.save_word2vec_format(self.output)
 
         return
-
-genEmbeddings(input='_data/graph/hp-obo.edgelist', output='_data/emb/hp-obo_prueba.emb')
