@@ -6,7 +6,7 @@ from Common import load_object
 
 class ROC_AUC_EXPERIMENT():
     def __init__(self, source, EXP_ID, exp_id):
-        fn = './_data/patients/'+source+'_patient_sims_'+EXP_ID+'_'+exp_id+'.pkl'
+        fn = './_data/results/sims/'+source+'_patient_sims_'+EXP_ID+'_'+exp_id+'.pkl'
         fl = './_data/patients/'+source+'_patients_disease.pkl'
         self.patient_similarities = load_object(fn)
         self.patients_disease = load_object(fl)

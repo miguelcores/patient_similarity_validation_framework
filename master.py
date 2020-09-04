@@ -7,10 +7,11 @@ from GenSymptomEmbeddings import genEmbeddings
 from MappingObjectsGenerators import gen_mapping_objects
 from GenPatientEmbeddings import gen_patient_embeddings
 from Validation import ROC_AUC_EXPERIMENT
+from Common import load_object, save_object
 
 start = time.time()
 
-EXP_ID = '5'
+EXP_ID = '6'
 
 rows = []
 exp_int = 0
@@ -18,7 +19,7 @@ source = 'orpha'
 walk_length = [i for i in range(35, 70, 5)]
 conds = 100
 patients_per_cond = 3
-lamb = 2
+lamb = 3
 
 print('Generating patients...')
 generate_patients(source=source, conds=conds, patients_per_cond=patients_per_cond, lamb=lamb)
@@ -50,7 +51,7 @@ for variable in walk_length:
               '../_data/patients/'+source+'_patients_phenotype.csv '
               '../_data/hpo/hp.obo ../_data/annotations/phenotype_annotation.tab '
               '../_data/patients/'+source+'_patient_embeddings.pkl '
-              '../_data/patients/'+source+'_patient_sims_'+EXP_ID+'_'+exp_id+'.pkl')
+              '../_data/results/sims/'+source+'_patient_sims_'+EXP_ID+'_'+exp_id+'.pkl')
     os.chdir('../')
     amount_time_similarities = time.time() - start_time_similarities
 
@@ -58,12 +59,13 @@ for variable in walk_length:
     print('Adding results...')
     experiment_metadata = ROC_AUC_EXPERIMENT(source=source, EXP_ID=EXP_ID, exp_id=exp_id).return_results()
     amount_time_results = time.time() - start_time_results
+
     if exp_int == 0:
-        experiment_metadata_ = experiment_metadata
-        experiment_metadata_.pop('cos_sim')
-        other_metrics = experiment_metadata_
+        save_object(experiment_metadata, './other_sims.pkl')
     else:
-        experiment_metadata.update(other_metrics)
+        other_sims = load_object('./other_sims.pkl')
+        other_sims.pop('cos_sim')
+        experiment_metadata.update(other_sims)
 
     experiment_metadata['source'] = source
     experiment_metadata['lambda'] = lamb
