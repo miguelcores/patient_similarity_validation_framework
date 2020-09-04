@@ -25,13 +25,16 @@ class PhenotypeAnnotationsParser():
     def __get_annotations(self, df):
         anns = {}
         gb = df.groupby('reference')
+        # print(gb)
         for name, group in gb:
             desc = group['disease-name'].values[0]
             hpos = group['HPO-ID'].tolist()
+            freqs = group['frequencyHPO'].tolist()
             anns[name] = {
                     'name': name,
                     'desc': desc,
-                    'hpos': hpos
+                    'hpos': hpos,
+                    'freqs': freqs
                 }
         return anns
 

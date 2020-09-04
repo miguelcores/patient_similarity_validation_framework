@@ -1,18 +1,19 @@
 import os
 import copy
 from scipy.stats import poisson
-from random import random
+from random import random, sample
 
 from Parsers import HpoParser, PhenotypeAnnotationsParser
 
 class PatientEmulator():
-    def __init__(self, count=3, lamb=3, ancestor_prob=0.5, noise_prob=0.5):
+    def __init__(self, conds=200, patients_per_cond=3, lamb=3, ancestor_prob=0.5, noise_prob=0.5):
         self.hpos = HpoParser()
         self.anns = PhenotypeAnnotationsParser()
         self.eligibles = list(self.__build_eligibles(self.hpos, self.anns))
         self.ancestor_prob = ancestor_prob
         self.lamb = lamb
-        self.count = count
+        self.conds = conds
+        self.patients_per_cond = patients_per_cond
         self.noise_prob = noise_prob
 
     def __build_eligibles(self, hpos, anns):
@@ -54,14 +55,35 @@ class PatientEmulator():
 
     def get_condition(self, source, name, describe=False):
         cond = self.anns.get_source(source)[name]
-        cond = copy.copy(cond)
+        # cond = copy.copy(cond)
         if describe: cond = self.describe(cond)
         return cond
 
-    def emulate_condition(self, source, name, describe=False):
+    def get_symptoms_by_frequency(self, source, name):
         cond = self.get_condition(source, name)
+        patient_symptoms = []
+        for i, freq in enumerate(cond['freqs']):
+            if freq == 'HP:0040280':
+                patient_symptoms.append(cond['hpos'][i])
+            elif freq == 'HP:0040281':
+                if random() <= .895:
+                    patient_symptoms.append(cond['hpos'][i])
+            elif freq == 'HP:0040282':
+                if random() <= .545:
+                    patient_symptoms.append(cond['hpos'][i])
+            elif freq == 'HP:0040283':
+                if random() <= .17:
+                    patient_symptoms.append(cond['hpos'][i])
+            elif freq == 'HP:0040284':
+                if random() <= .025:
+                    patient_symptoms.append(cond['hpos'][i])
+        return patient_symptoms
+
+    def emulate_condition(self, source, name, describe=False):
+        cond = {}
         # hpos = self.__random_ancestors(cond['hpos'], self.ancestor_prob)
-        hpos = self.__poisson_ancestors(cond['hpos'], self.lamb)
+        hpos = self.get_symptoms_by_frequency(source, name)
+        hpos = self.__poisson_ancestors(hpos, self.lamb)
         hpos.extend(self.__random_hpos(int(len(hpos) * self.noise_prob)))
         cond['hpos'] = hpos
         if describe: cond = self.describe(cond)
@@ -69,14 +91,17 @@ class PatientEmulator():
 
     def emulate_conditions(self, source, describe=False):
         conds = {}
-        for name in self.anns.get_source(source):
+        print(self.anns.get_source(source))
+        names = sample([name for name in self.anns.get_source(source)], k=self.conds)
+        for name in names:
             real = self.get_condition(source, name, describe=describe)
             cond = {
                     'desc': real['desc'],
                     'hpos': real['hpos'],
+                    'freqs': real['freqs'],
                     'sims': []
                 }
-            for n in range(self.count):
+            for n in range(self.patients_per_cond):
                 emul = self.emulate_condition(source, name, describe=describe)
                 unique_terms_in_phenotype = list(dict.fromkeys(emul['hpos']))
                 cond['sims'].append(unique_terms_in_phenotype)

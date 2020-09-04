@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d27d2a1-51d4-467d-8a80-ff6eac17ce1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Validation/experiment_results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/hpo_vecs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/hpo_vecs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenPatientEmbeddings.py" beforeDir="false" afterPath="$PROJECT_DIR$/GenPatientEmbeddings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notebooks/ExperimentResults.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GenPatients.py" beforeDir="false" afterPath="$PROJECT_DIR$/GenPatients.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Notebooks/Patient similarities.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/Patient similarities.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notebooks/tab2csv + some metrics.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/tab2csv + some metrics.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parsers/parser_phen_anns.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parsers/parser_phen_anns.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/1000gp_gene_loads.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/en_product1.xml" beforeDir="false" />
@@ -23,14 +22,13 @@
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Validation/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Validation/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/emb/hp-obo_0.emb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/patients/decipher_patient_embeddings.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/decipher_patient_embeddings.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tools/patient_emu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/patient_emu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Validation/experiment_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/Validation/experiment_results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_data/patients/decipher_patient_sims.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/decipher_patient_sims.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/patients/decipher_patients_phenotype.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/decipher_patients_phenotype.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_data/walks/walks.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/walks/walks.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_emu/emu-decipher.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-decipher.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/commands.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_emu/emu-omim.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-omim.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_emu/emu-orpha.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-orpha.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/master.py" beforeDir="false" afterPath="$PROJECT_DIR$/master.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/things.py" beforeDir="false" afterPath="$PROJECT_DIR$/things.py" afterDir="false" />
     </list>
@@ -76,8 +74,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.master">
-    <configuration name="ExperimentResults" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.GenPatients">
+    <configuration name="GenPatients" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TFG" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -89,7 +87,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Notebooks/ExperimentResults.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GenPatients.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -205,18 +203,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.things" />
-      <item itemvalue="Python.ExperimentResults" />
       <item itemvalue="Python.GenSymptomEmbeddings" />
       <item itemvalue="Python.master" />
       <item itemvalue="Python.ROC-AUC_experiment_results" />
+      <item itemvalue="Python.GenPatients" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GenPatients" />
         <item itemvalue="Python.master" />
         <item itemvalue="Python.things" />
         <item itemvalue="Python.ROC-AUC_experiment_results" />
         <item itemvalue="Python.GenSymptomEmbeddings" />
-        <item itemvalue="Python.ExperimentResults" />
       </list>
     </recent_temporary>
   </component>
@@ -244,5 +242,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Parsers/parser_phen_anns.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

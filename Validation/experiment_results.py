@@ -11,7 +11,7 @@ class ROC_AUC_EXPERIMENT():
 
         self.y = []
 
-        self.sim_names = {'cos_sim', 'jaccard_best_avg', 'resnik_best_avg'}
+        self.sim_names = {'cos_sim', 'jaccard_best_avg', 'resnik_best_avg', 'lin_best_avg', 'jc_best_avg'}
         self.fpr = {}
         self.tpr = {}
         self.thresholds = {}
@@ -19,6 +19,8 @@ class ROC_AUC_EXPERIMENT():
         self.cos_sim = []
         self.jaccard_best_avg = []
         self.resnik_best_avg = []
+        self.lin_best_avg = []
+        self.jc_best_avg = []
 
         self.x = len(self.patient_similarities)
         self.z = self.x-1
@@ -61,7 +63,7 @@ class ROC_AUC_EXPERIMENT():
         patients_disease = self.patients_disease
         for patient in patient_similarities:
             for sim in patient_similarities[patient]:
-                if sim =='cos_sim':
+                if sim == 'cos_sim':
                     for patient_compared in patient_similarities[patient][sim]:
                         self.cos_sim.append(patient_similarities[patient][sim][patient_compared])
                         if patients_disease[patient_compared] == patients_disease[patient]:
@@ -75,6 +77,12 @@ class ROC_AUC_EXPERIMENT():
                 if sim == 'resnik_best_avg':
                     self.resnik_best_avg = self.append_similarity_score(self.resnik_best_avg, patient_similarities[patient][sim])
                     self.load_results(sim, self.resnik_best_avg)
+                if sim == 'lin_best_avg':
+                    self.lin_best_avg = self.append_similarity_score(self.lin_best_avg, patient_similarities[patient][sim])
+                    self.load_results(sim, self.lin_best_avg)
+                if sim == 'jc_best_avg':
+                    self.jc_best_avg = self.append_similarity_score(self.jc_best_avg, patient_similarities[patient][sim])
+                    self.load_results(sim, self.jc_best_avg)
 
     def return_results(self):
         return self.roc_auc
