@@ -7,7 +7,7 @@ from Parsers import HpoParser, PhenotypeAnnotationsParser
 class genEdgeList():
     def __init__(self, enrich, output):
         self.hpos = HpoParser()
-        self.hpos_df = pd.read_csv('./_data/hpo2int.csv', usecols=['Name', 'Id'])
+        self.hpos_df = pd.read_csv('./_data/hpo/hpo2int.csv', usecols=['Name', 'Id'])
         self.nodes = self.hpos_df.Id #getting all nodes
         self.hpos_dict = self.hpos_df.set_index('Name')['Id'].to_dict() #key pair values for fast mapping
         self.graph = nx.Graph() #empty graph
@@ -28,7 +28,7 @@ class genEdgeList():
         if self.enrich:
             anns = PhenotypeAnnotationsParser()
             t0 = time.time()
-            dic = anns.decipher
+            dic = anns.orpha
             items = list(dic.keys())
 
             for id in items:
@@ -62,4 +62,4 @@ class genEdgeList():
             self.enrich_from_annotations(array)
 
 
-genEdgeList(enrich=False, output="./_data/Graph/hp-obo")
+genEdgeList(enrich=True, output="./_data/graph/hp-obo-orpha")

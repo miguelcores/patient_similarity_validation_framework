@@ -19,7 +19,7 @@ class PhenotypeAnnotationsParser():
         df = pd.read_csv(fn, sep='\t', low_memory=False)
         df = df[['#disease-db', 'reference', 'disease-name', 'HPO-ID', 'frequencyHPO']]
         self.decipher = self.__get_annotations(df[df['#disease-db'] == 'DECIPHER'])
-        self.orpha = self.__get_annotations(df[df['#disease-db'] == 'ORPHA'])
+        self.orpha = self.__get_annotations(df[df['#disease-db'] == 'ORPHA'].groupby('reference').filter(lambda x: len(x) > 2))
         self.omim = self.__get_annotations(df[df['#disease-db'] == 'OMIM'])
 
     def __get_annotations(self, df):

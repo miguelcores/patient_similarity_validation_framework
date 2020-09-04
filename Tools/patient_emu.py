@@ -59,7 +59,7 @@ class PatientEmulator():
         if describe: cond = self.describe(cond)
         return cond
 
-    def get_symptoms_by_frequency(self, source, name):
+    def get_symptoms_by_frequency(self, source, name, tries):
         cond = self.get_condition(source, name)
         patient_symptoms = []
         for i, freq in enumerate(cond['freqs']):
@@ -77,12 +77,19 @@ class PatientEmulator():
             elif freq == 'HP:0040284':
                 if random() <= .025:
                     patient_symptoms.append(cond['hpos'][i])
-        return patient_symptoms
+        tries += 1
+        if len(patient_symptoms) >= 2:
+            return patient_symptoms
+        elif tries <= 100:
+            return self.get_symptoms_by_frequency(source, name, tries)
+        else:
+            raise ValueError('This condition must be eliminated: {}'.format(cond))
 
     def emulate_condition(self, source, name, describe=False):
         cond = {}
         # hpos = self.__random_ancestors(cond['hpos'], self.ancestor_prob)
-        hpos = self.get_symptoms_by_frequency(source, name)
+        tries=0
+        hpos = self.get_symptoms_by_frequency(source, name, tries)
         hpos = self.__poisson_ancestors(hpos, self.lamb)
         hpos.extend(self.__random_hpos(int(len(hpos) * self.noise_prob)))
         cond['hpos'] = hpos
@@ -91,7 +98,6 @@ class PatientEmulator():
 
     def emulate_conditions(self, source, describe=False):
         conds = {}
-        print(self.anns.get_source(source))
         names = sample([name for name in self.anns.get_source(source)], k=self.conds)
         for name in names:
             real = self.get_condition(source, name, describe=describe)
