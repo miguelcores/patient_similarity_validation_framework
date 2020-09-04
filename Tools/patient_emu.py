@@ -65,20 +65,20 @@ class PatientEmulator():
         for i, freq in enumerate(cond['freqs']):
             if freq == 'HP:0040280':
                 patient_symptoms.append(cond['hpos'][i])
-            elif freq == 'HP:0040281':
-                if random() <= .895:
+            elif freq == 'HP:0040281':  # Very frequent:
+                if random() <= .895:    # (0.99 + 0.80) / 2
                     patient_symptoms.append(cond['hpos'][i])
-            elif freq == 'HP:0040282':
-                if random() <= .545:
+            elif freq == 'HP:0040282':  # Frequent:
+                if random() <= .545:    # (0.79 + 0.30) / 2
                     patient_symptoms.append(cond['hpos'][i])
-            elif freq == 'HP:0040283':
-                if random() <= .17:
+            elif freq == 'HP:0040283':  # Occasional:
+                if random() <= .17:     # (0.05 + 0.29) / 2
                     patient_symptoms.append(cond['hpos'][i])
-            elif freq == 'HP:0040284':
-                if random() <= .025:
+            elif freq == 'HP:0040284':  # Very rare:
+                if random() <= .025:    # (0.01 + 0.04) / 2
                     patient_symptoms.append(cond['hpos'][i])
         tries += 1
-        if len(patient_symptoms) >= 2:
+        if len(patient_symptoms) >= 3:
             return patient_symptoms
         elif tries <= 100:
             return self.get_symptoms_by_frequency(source, name, tries)

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d27d2a1-51d4-467d-8a80-ff6eac17ce1d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/1000gp_gene_loads.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/data/en_product1.xml" beforeDir="false" />
@@ -17,6 +19,13 @@
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientSimilarities/test/test.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tools/patient_emu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools/patient_emu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/patients/orpha_patient_embeddings.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/orpha_patient_embeddings.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/patients/orpha_patients_disease.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/orpha_patients_disease.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/patients/orpha_patients_phenotype.csv" beforeDir="false" afterPath="$PROJECT_DIR$/_data/patients/orpha_patients_phenotype.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/walks/walks.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/_data/walks/walks.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_emu/emu-orpha.json" beforeDir="false" afterPath="$PROJECT_DIR$/_emu/emu-orpha.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/master.py" beforeDir="false" afterPath="$PROJECT_DIR$/master.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
