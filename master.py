@@ -19,7 +19,7 @@ exp_int = 0
 source = 'orpha'
 walk_length = 50
 conds = 100
-noise_ptgs = [.15, .25, .5]
+noise_ptgs = [.15, .3, .45, .6]
 patients_per_cond = 3
 lamb = 2
 
@@ -79,6 +79,7 @@ for noise_ptg in noise_ptgs:
         experiment_metadata['time_similarities'] = amount_time_similarities
         experiment_metadata['time_results'] = amount_time_results
         experiment_metadata['cond_number'] = conds
+        experiment_metadata['noise_ptg'] = noise_ptg
         experiment_metadata['patients_per_cond'] = patients_per_cond
         experiment_metadata['time_symptom_embeddings'] = amount_time_symptom_embeddings
         experiment_metadata['time_patient_embeddings'] = amount_time_patient_embeddings
