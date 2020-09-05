@@ -6,7 +6,7 @@ from random import random, sample
 from Parsers import HpoParser, PhenotypeAnnotationsParser
 
 class PatientEmulator():
-    def __init__(self, conds=200, patients_per_cond=3, lamb=3, ancestor_prob=0.5, noise_prob=0.5):
+    def __init__(self, conds=200, patients_per_cond=3, lamb=3, ancestor_prob=0.5, noise_ptg=0.5):
         self.hpos = HpoParser()
         self.anns = PhenotypeAnnotationsParser()
         self.eligibles = list(self.__build_eligibles(self.hpos, self.anns))
@@ -14,7 +14,7 @@ class PatientEmulator():
         self.lamb = lamb
         self.conds = conds
         self.patients_per_cond = patients_per_cond
-        self.noise_prob = noise_prob
+        self.noise_prob = noise_ptg
 
     def __build_eligibles(self, hpos, anns):
         eligibles = anns.get_hpos()

@@ -4,8 +4,8 @@ import json
 from Tools import PatientEmulator
 
 
-def generate_patients(source='orpha', path='_emu', conds=100, patients_per_cond=3, lamb=1, ancestor_prob=0.5, noise_prob=0):
-    emu = PatientEmulator(conds, patients_per_cond, lamb=lamb, ancestor_prob=ancestor_prob, noise_prob=noise_prob)
+def generate_patients(source='orpha', path='_emu', conds=100, patients_per_cond=3, lamb=1, ancestor_prob=0.5, noise_ptg=0):
+    emu = PatientEmulator(conds, patients_per_cond, lamb=lamb, ancestor_prob=ancestor_prob, noise_ptg=noise_ptg)
 
     if source == 'decipher' or source == 'all':
         decipher_patients = emu.emulate_conditions('DECIPHER')
