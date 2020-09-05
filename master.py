@@ -11,7 +11,7 @@ from Common import load_object, save_object
 
 start = time.time()
 
-EXP_ID = '9'
+EXP_ID = '10'
 
 number_experiments = 5
 rows = []
@@ -19,27 +19,28 @@ exp_int = 0
 source = 'orpha'
 walk_length = 50
 conds = 100
+noise_ptgs = [.15, .25, .5]
 patients_per_cond = 3
-lambs = [0, 1, 2, 3, 4, 5]
+lamb = 2
 
 print('Generating embeddings...')
 start_time_symptom_embeddings = time.time()
 genEmbeddings(input='_data/graph/hp-obo.edgelist', output='_data/emb/hp-obo_'+EXP_ID+'_'+str(exp_int)+'.emb', walk_length=walk_length)
 amount_time_symptom_embeddings = time.time()-start_time_symptom_embeddings
-start_time_patient_embeddings = time.time()
 
 
-for lamb in lambs:
+for noise_ptg in noise_ptgs:
     for exp in range(number_experiments):
         exp_id = str(exp_int)
 
         print('Generating patients...')
-        generate_patients(source=source, conds=conds, patients_per_cond=patients_per_cond, lamb=lamb)
+        generate_patients(source=source, conds=conds, patients_per_cond=patients_per_cond, lamb=lamb, noise_ptg=noise_ptg)
 
         print('Generating patient files...')
         gen_mapping_objects(source=source)
 
         print('Generating patient embeddings...')
+        start_time_patient_embeddings = time.time()
         gen_patient_embeddings(source=source, EXP_ID=EXP_ID, exp_id=str(0))
         amount_time_patient_embeddings = time.time()-start_time_patient_embeddings
 
