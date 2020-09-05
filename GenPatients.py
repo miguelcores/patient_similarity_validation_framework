@@ -27,6 +27,3 @@ def generate_patients(source='orpha', path='_emu', conds=100, patients_per_cond=
         decipher_patients.update(omim_patients)
         with open(os.path.join(path, 'emu-all.json'), 'w') as fp:
             json.dump(decipher_patients, fp, indent=2)
-
-
-generate_patients()
