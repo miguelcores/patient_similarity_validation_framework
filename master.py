@@ -11,22 +11,22 @@ from Common import load_object, save_object
 
 start = time.time()
 
-EXP_ID = '14'
+EXP_ID = '15'
 
-number_experiments = 5
+number_experiments = 1
 exp_int = 0
 source = 'orpha'
 walk_length = 50
 conds = 100
-noise_ptgs = [.15, .3, .45, .6]
+noise_ptgs = [.15]#, .3, .45, .6]
 patients_per_cond = 2
 lamb = 4
 enriched_embeddings = 'no'
 
-print('Generating embeddings...')
-start_time_symptom_embeddings = time.time()
-genEmbeddings(input='_data/graph/hp-obo.edgelist', output='_data/emb/hp-obo_'+EXP_ID+'_'+str(exp_int)+'.emb', walk_length=walk_length)
-amount_time_symptom_embeddings = time.time()-start_time_symptom_embeddings
+# print('Generating embeddings...')
+# start_time_symptom_embeddings = time.time()
+# genEmbeddings(input='_data/graph/hp-obo.edgelist', output='_data/emb/hp-obo_'+EXP_ID+'_'+str(exp_int)+'.emb', walk_length=walk_length)
+# amount_time_symptom_embeddings = time.time()-start_time_symptom_embeddings
 
 rows = []
 
@@ -35,20 +35,20 @@ for noise_ptg in noise_ptgs:
     for exp in range(number_experiments):
         exp_id = str(exp_int)
 
-        print('Generating patients...')
-        generate_patients(source=source, conds=conds, patients_per_cond=patients_per_cond, lamb=lamb, noise_ptg=noise_ptg)
-
-        print('Generating patient files...')
-        gen_mapping_objects(source=source)
-
-        print('Generating patient embeddings...')
-        start_time_patient_embeddings = time.time()
-        gen_patient_embeddings(source=source, enriched=enriched_embeddings, EXP_ID=EXP_ID, exp_id=str(0))
-        amount_time_patient_embeddings = time.time()-start_time_patient_embeddings
+        # print('Generating patients...')
+        # generate_patients(source=source, conds=conds, patients_per_cond=patients_per_cond, lamb=lamb, noise_ptg=noise_ptg)
+        #
+        # print('Generating patient files...')
+        # gen_mapping_objects(source=source)
+        #
+        # print('Generating patient embeddings...')
+        # start_time_patient_embeddings = time.time()
+        # gen_patient_embeddings(source=source, enriched=enriched_embeddings, EXP_ID=EXP_ID, exp_id=str(0))
+        # amount_time_patient_embeddings = time.time()-start_time_patient_embeddings
 
         print('Generating Patient similarities...')
         start_time_similarities = time.time()
-        os.chdir('PatientSimilarities')
+        os.chdir('patient-similarity')
         # if exp_int == 0:
         metrics = '-s jaccard -s resnik -s lin -s jc -s cos_sim '
         # else:
@@ -83,8 +83,8 @@ for noise_ptg in noise_ptgs:
         experiment_metadata['cond_number'] = conds
         experiment_metadata['noise_ptg'] = noise_ptg
         experiment_metadata['patients_per_cond'] = patients_per_cond
-        experiment_metadata['time_symptom_embeddings'] = amount_time_symptom_embeddings # 'N/A'
-        experiment_metadata['time_patient_embeddings'] = amount_time_patient_embeddings
+        # experiment_metadata['time_symptom_embeddings'] = amount_time_symptom_embeddings # 'N/A'
+        # experiment_metadata['time_patient_embeddings'] = amount_time_patient_embeddings
         experiment_metadata['enriched_embeddings'] = enriched_embeddings
         rows.append(experiment_metadata)
         exp_int += 1
