@@ -11,23 +11,24 @@ from Common import load_object, save_object
 
 start = time.time()
 
-EXP_ID = '12'
+EXP_ID = '14'
 
 number_experiments = 5
-rows = []
 exp_int = 0
 source = 'orpha'
 walk_length = 50
 conds = 100
 noise_ptgs = [.15, .3, .45, .6]
-patients_per_cond = 3
-lamb = 3
-enriched_embeddings = 'yes'
+patients_per_cond = 2
+lamb = 4
+enriched_embeddings = 'no'
 
-# print('Generating embeddings...')
-# start_time_symptom_embeddings = time.time()
-# genEmbeddings(input='_data/graph/hp-obo.edgelist', output='_data/emb/hp-obo_'+EXP_ID+'_'+str(exp_int)+'.emb', walk_length=walk_length)
-# amount_time_symptom_embeddings = time.time()-start_time_symptom_embeddings
+print('Generating embeddings...')
+start_time_symptom_embeddings = time.time()
+genEmbeddings(input='_data/graph/hp-obo.edgelist', output='_data/emb/hp-obo_'+EXP_ID+'_'+str(exp_int)+'.emb', walk_length=walk_length)
+amount_time_symptom_embeddings = time.time()-start_time_symptom_embeddings
+
+rows = []
 
 
 for noise_ptg in noise_ptgs:
@@ -52,7 +53,7 @@ for noise_ptg in noise_ptgs:
         metrics = '-s jaccard -s resnik -s lin -s jc -s cos_sim '
         # else:
         #     metrics = '-s cos_sim '
-        os.system('python -m patient_similarity --patient-file-format csv '
+        os.system('python -m patient_similarity --patient-file-format csv --log=ERROR '
                   + metrics +
                   '../_data/patients/'+source+'_patients_phenotype.csv '
                   '../_data/hpo/hp.obo ../_data/annotations/phenotype_annotation.tab '
@@ -82,12 +83,11 @@ for noise_ptg in noise_ptgs:
         experiment_metadata['cond_number'] = conds
         experiment_metadata['noise_ptg'] = noise_ptg
         experiment_metadata['patients_per_cond'] = patients_per_cond
-        experiment_metadata['time_symptom_embeddings'] = 'N/A'
+        experiment_metadata['time_symptom_embeddings'] = amount_time_symptom_embeddings # 'N/A'
         experiment_metadata['time_patient_embeddings'] = amount_time_patient_embeddings
         experiment_metadata['enriched_embeddings'] = enriched_embeddings
         rows.append(experiment_metadata)
         exp_int += 1
-
 
 df = pd.DataFrame(rows, columns=[column for column in experiment_metadata])
 df.to_csv('_data/results/experiment_number_'+EXP_ID+'.csv', index=False)

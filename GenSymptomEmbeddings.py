@@ -66,4 +66,4 @@ class genEmbeddings():
 
         return
 
-genEmbeddings(input='_data/graph/hp-obo-orpha.edgelist', output='_data/emb/hp-obo-orpha.emb')
+# genEmbeddings(input='_data/graph/hp-obo-orpha.edgelist', output='_data/emb/hp-obo-orpha.emb')
