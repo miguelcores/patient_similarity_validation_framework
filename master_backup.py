@@ -41,10 +41,9 @@ fig, ax = plt.subplots(2, 2)
 i = 0
 
 for noise_ptg in noise_ptgs:
-    aucs = {'cos_sim': [], 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
-    tprs = {'cos_sim': [], 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
-    fprs = {'cos_sim': [], 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
-    interp_tpr = {}
+    aucs = []
+    tprs = []
+    fprs = []
     mean_fpr = np.linspace(0, 1, 100)
     for exp in range(number_experiments):
         exp_id = str(exp_int)
@@ -80,11 +79,10 @@ for noise_ptg in noise_ptgs:
         start_time_results = time.time()
         experiment = ROC_AUC_EXPERIMENT(source=source, EXP_ID=EXP_ID, exp_id=exp_id)
         experiment_metadata, tpr, fpr = experiment.return_results()
-        for sim in sim_names:
-            interp_tpr[sim] = np.interp(mean_fpr, fpr[sim], tpr[sim])
-            interp_tpr[sim][0] = 0.0
-            tprs[sim].append(interp_tpr[sim])
-            aucs[sim].append(experiment_metadata[sim])
+        interp_tpr = np.interp(mean_fpr, fpr['cos_sim'], tpr['cos_sim'])
+        interp_tpr[0] = 0.0
+        tprs.append(interp_tpr)
+        aucs.append(experiment_metadata['cos_sim'])
         # experiment.plot_it()
         # metadata_list = load_object('_data/results/experiment_number'+EXP_ID+'.pkl')
         # metadata_list.append({noise_ptg: {'auc': experiment_metadata, 'tpr': tpr, 'fpr': fpr}})
@@ -124,32 +122,25 @@ for noise_ptg in noise_ptgs:
     elif i == 3:
         axis = ax[1, 1]
 
-    mean_tpr = {}
-    mean_auc = {}
-    std_auc = {}
-    std_tpr = {}
-    tprs_upper = {}
-    tprs_lower = {}
+    axis.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r')
 
-    for sim in sim_names:
-        mean_tpr[sim] = np.mean(tprs[sim], axis=0)
-        mean_tpr[sim][-1] = 1.0
-        mean_auc[sim] = auc(mean_fpr, mean_tpr[sim])
-        std_auc[sim] = np.std(aucs[sim])
-        std_tpr[sim] = np.std(tprs[sim], axis=0)
-        tprs_upper[sim] = np.minimum(mean_tpr[sim] + std_tpr[sim], 1)
-        tprs_lower[sim] = np.maximum(mean_tpr[sim] - std_tpr[sim], 0)
-        axis.plot(mean_fpr, mean_tpr[sim],
-                label='{} $\pm$ 1 SD (AUC = {} $\pm$ {})'.format(sim, round(mean_auc[sim], 3), round(std_auc[sim], 3)),
-                lw=2, alpha=.8)
-        axis.fill_between(mean_fpr, tprs_lower[sim], tprs_upper[sim], alpha=.2)#,
-                        # label=r'$\pm$ 1 std. dev.')
+    mean_tpr = np.mean(tprs, axis=0)
+    mean_tpr[-1] = 1.0
+    mean_auc = auc(mean_fpr, mean_tpr)
+    std_auc = np.std(aucs)
+    axis.plot(mean_fpr, mean_tpr, color='b',
+            label=r'Mean ROC (AUC = %0.2f $\pm$ %0.2f)' % (mean_auc, std_auc),
+            lw=2, alpha=.8)
 
-    axis.plot([0, 1], [0, 1], linestyle='--', lw=2)
+    std_tpr = np.std(tprs, axis=0)
+    # tprs_upper = np.minimum(mean_tpr + std_tpr, 1)
+    # tprs_lower = np.maximum(mean_tpr - std_tpr, 0)
+    # axis.fill_between(mean_fpr, tprs_lower, tprs_upper, color='grey', alpha=.2,
+    #                 label=r'$\pm$ 1 std. dev.')
+
     axis.set(xlim=[-0.05, 1.05], ylim=[-0.05, 1.05],
-           title="{}% as many noise terms added".format(noise_ptg*100))
+           title="ROC-{}% noise".format(noise_ptg))
     axis.legend(loc="lower right")
-
     i += 1
 
 plt.show()

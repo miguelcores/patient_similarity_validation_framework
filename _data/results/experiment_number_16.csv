@@ -1,0 +1,2 @@
+cos_sim,jaccard_best_avg,jc_best_avg,lin_best_avg,resnik_best_avg,source,lambda,exp_id,walk_length,iterations,time_similarities,time_results,cond_number,noise_ptg,patients_per_cond,time_symptom_embeddings,time_patient_embeddings,enriched_embeddings
+0.968797157900053,0.9875437804600894,0.9953734122875685,0.9802015731925962,0.9784769008358375,orpha,4,0,50,3,534.482063293457,0.5399966239929199,200,0.15,2,136.70645999908447,4.216001510620117,no
