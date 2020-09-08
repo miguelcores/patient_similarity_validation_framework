@@ -1,9 +1,10 @@
 import os
 import copy
 from scipy.stats import poisson
-from random import random, sample
+from random import random, sample, randint
 
 from Parsers import HpoParser, PhenotypeAnnotationsParser
+
 
 class PatientEmulator():
     def __init__(self, conds=200, patients_per_cond=3, lamb=3, ancestor_prob=0.5, noise_ptg=0.5):
@@ -19,15 +20,15 @@ class PatientEmulator():
     def __build_eligibles(self, hpos, anns):
         eligibles = anns.get_hpos()
         for hpo in list(eligibles):
-            for ancestor in hpos.get_ancestors(hpo):
+            for ancestor in hpos.get_ancestors_(hpo):
                 eligibles.add(ancestor)
         return eligibles
 
     def __random_hpos(self, count):
         hpos = []
         for n in range(count):
-            ix = int(random() * len(self.eligibles))
-            hpos.append(self.eligibles[ix])
+            ix = int(random() * len(self.eligibles_now))
+            hpos.append(self.eligibles_now[ix])
         return hpos
 
     def __random_ancestor(self, hpo, prob):
@@ -37,15 +38,28 @@ class PatientEmulator():
             return ancestors[ix]
         return hpo
 
-    def __poisson_ancestor(self, hpo, lamb):
-        ancestors = [hpo]
-        [ancestors.append(term) for term in self.hpos.get_ancestors(hpo)]
-        ix = poisson.rvs(mu=lamb, size=1)[0]
-        # print('hpo: {}, ancestors: {}, selected: {}'.format(hpo, ancestors, ix))
+    def __poisson_ancestor(self, hpo, lamb, aux=None):
+        ancestors = self.hpos.get_ancestors(hpo)
+        level = poisson.rvs(mu=lamb, size=1)[0]
+        hpo_root = [
+            'HP:0000118', # Phenotypic Abnormality
+            'HP:0000001' # All
+        ]
+        if aux is None:
+            self.remove_ancestors_from_eligibles(ancestors)
+            self.remove_descendants_from_eligibles([descendant for descendant in self.hpos.get_descendants(hpo)])
         try:
-            return ancestors[ix]
+            ancestor = ancestors[level][randint(0, len(ancestors[level])-1)]
+            if ancestor not in hpo_root:
+                return ancestor
+            else:
+                return self.__poisson_ancestor(hpo, lamb, aux='1')
         except IndexError:
-            return self.manage_index_error(ancestors, ix)
+            ancestor = self.manage_index_error(ancestors, level)
+            if ancestor not in hpo_root:
+                return ancestor
+            else:
+                return self.__poisson_ancestor(hpo, lamb, aux='1')
 
     def __random_ancestors(self, hpos, prob):
         return [self.__random_ancestor(hpo, prob) for hpo in hpos]
@@ -86,6 +100,7 @@ class PatientEmulator():
             raise ValueError('This condition must be eliminated: {}'.format(cond))
 
     def emulate_condition(self, source, name, describe=False):
+        self.eligibles_now = self.eligibles
         cond = {}
         # hpos = self.__random_ancestors(cond['hpos'], self.ancestor_prob)
         tries = 0
@@ -124,6 +139,21 @@ class PatientEmulator():
 
     def manage_index_error(self, ancestors, ix):
         try:
-            return ancestors[ix-1]
+            return ancestors[ix-1][randint(0, len(ancestors[ix-1])-1)]
         except IndexError:
             return self.manage_index_error(ancestors, ix-1)
+
+    def remove_ancestors_from_eligibles(self, ancestors):
+        for level in ancestors:
+            for ancestor in level:
+                try:
+                    self.eligibles_now.remove(ancestor)
+                except ValueError:
+                    pass
+
+    def remove_descendants_from_eligibles(self, descendants):
+        for descendant in descendants:
+            try:
+                self.eligibles_now.remove(descendant)
+            except ValueError:
+                pass

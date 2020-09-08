@@ -46,13 +46,14 @@ class HpoParser():
     def __getitem__(self, name):
         return self.hpos[name]
 
-    def get_ancestors(self, items):
+    def get_parents(self, items):
         parents = []
         if not isinstance(items, list):
             items = [items]
         for item in items:
             hpo = self.hpos[item]
             parents.extend(hpo['parents'])
+
         return parents
 
     def get_children(self, items):
@@ -73,6 +74,33 @@ class HpoParser():
                 yield name
                 for item in self.get_descendants(name, cache):
                     yield item
+
+    def get_ancestors(self, parent, l=None):
+        if l is None:
+            self.ancestors = [[parent]]
+            l = 1
+        else:
+            l+=1
+        parents = self.hpos[parent]['parents']
+        for parent in parents:
+            try:
+                self.ancestors[l].append(parent)
+            except IndexError:
+                self.ancestors.append([])
+                self.ancestors[l].append(parent)
+            self.get_ancestors(parent, l)
+        return self.ancestors
+
+    def get_ancestors_(self, item, cache=None):
+        if cache is None: cache = []
+        hpo = self.hpos[item]
+        for name in hpo['parents']:
+            if not name in cache:
+                cache.append(name)
+                yield name
+        for name in hpo['parents']:
+            for item in self.get_ancestors_(name, cache):
+                yield item
 
     def save_pkl(self, fn):
         save_object(self.hpos, fn)
