@@ -10,17 +10,17 @@ from Validation import ROC_AUC_EXPERIMENT
 
 start = time.time()
 
-EXP_ID = '18'
+EXP_ID = '26'
 
 number_experiments = 5
 exp_int = 0
 source = 'orpha'
 walk_length = 50
 iterations = 1
-conds = 200
-noise_ptgs = [.15, .3, .45, .6]
+conds = 150
+noise_ptg = 0 #[0, .2, .4, .6]
 patients_per_cond = 2
-lamb = 1
+lambs = [0, 1, 2, 3, 4, 5]
 enriched_embeddings = 'no'
 
 print('Generating embeddings...')
@@ -30,7 +30,7 @@ amount_time_symptom_embeddings = time.time()-start_time_symptom_embeddings
 
 rows = []
 
-for noise_ptg in noise_ptgs:
+for lamb in lambs:
     for exp in range(number_experiments):
         exp_id = str(exp_int)
 

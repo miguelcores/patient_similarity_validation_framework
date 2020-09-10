@@ -1,18 +1,27 @@
 import json, csv, time
 from Common import save_object
 
-def gen_mapping_objects(source):
+def gen_mapping_objects(source, number_experiments_same_time=None):
 
     start = time.time()
+    if number_experiments_same_time:
+        with open('./_emu/emu-'+source+'_'+number_experiments_same_time+'.json') as json_file:
+            patient_sims = json.load(json_file)
 
-    with open('./_emu/emu-'+source+'.json') as json_file:
-        patient_sims = json.load(json_file)
+        f = open('_data/patients/'+source+'_'+number_experiments_same_time+'_patients_phenotype.csv', 'w', newline='')
+        writer = csv.writer(f)
 
-    f = open('_data/patients/'+source+'_patients_phenotype.csv', 'w', newline='')
-    writer = csv.writer(f)
+        patients_conditions = {}
+        fn = '_data/patients/'+source+'_'+number_experiments_same_time+'_patients_disease.pkl'
+    else:
+        with open('./_emu/emu-'+source+'.json') as json_file:
+            patient_sims = json.load(json_file)
 
-    patients_conditions = {}
-    fn = '_data/patients/'+source+'_patients_disease.pkl'
+        f = open('_data/patients/'+source+'_patients_phenotype.csv', 'w', newline='')
+        writer = csv.writer(f)
+
+        patients_conditions = {}
+        fn = '_data/patients/'+source+'_patients_disease.pkl'
     i = 0
 
     for disease in patient_sims:

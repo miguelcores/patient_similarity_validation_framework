@@ -7,28 +7,28 @@ from Validation import ROC_AUC_EXPERIMENT
 
 start = time.time()
 
-EXP_ID = '17'
+EXP_ID = '25'
 
 number_experiments = 5
 exp_int = 0
 source = 'orpha'
 walk_length = 50
-iterations = 3
-conds = 200
-noise_ptgs = [.15, .3, .45, .6]
+iterations = 1
+conds = 150
+noise_ptg = 0 #[0, .2, .4, .6]
 patients_per_cond = 2
-lamb = 4
+lambs = [0, 1, 2, 3, 4, 5]
 enriched_embeddings = 'no'
 
 
-sim_names = {'cos_sim', 'jaccard_best_avg', 'resnik_best_avg', 'lin_best_avg', 'jc_best_avg'}
+sim_names = {'cos_sim'}#, 'jaccard_best_avg', 'resnik_best_avg', 'lin_best_avg', 'jc_best_avg'}
 fig, ax = plt.subplots(2, 2)
 i = 0
 
-for noise_ptg in noise_ptgs:
-    aucs = {'cos_sim': [], 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
-    tprs = {'cos_sim': [], 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
-    fprs = {'cos_sim': [], 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
+for lamb in lambs:
+    aucs = {'cos_sim': []}#, 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
+    tprs = {'cos_sim': []}#, 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
+    fprs = {'cos_sim': []}#, 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
     interp_tpr = {}
     mean_fpr = np.linspace(0, 1, 100)
     for exp in range(number_experiments):
@@ -75,6 +75,7 @@ for noise_ptg in noise_ptgs:
                 lw=2, alpha=.8)
         axis.fill_between(mean_fpr, tprs_lower[sim], tprs_upper[sim], alpha=.2)#,
                         # label=r'$\pm$ 1 std. dev.')
+        # color = next(ax._get_lines.prop_cycler)['color']
 
     axis.plot([0, 1], [0, 1], linestyle='--', lw=2)
     axis.set(xlim=[-0.05, 1.05], ylim=[-0.05, 1.05],

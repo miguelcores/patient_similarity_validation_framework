@@ -1,7 +1,11 @@
-from Common import utils
+from Parsers import HpoParser
 
-translator = utils.load_object('./_data/results/experiment_16_object.pkl')
-print(translator)
+print(len(HpoParser().hpos['HP:0000118']['children']))
+
+# from Common import utils
+#
+# translator = utils.load_object('./_data/results/experiment_16_object.pkl')
+# print(translator)
 
 
 # print(translator['id2name'])
