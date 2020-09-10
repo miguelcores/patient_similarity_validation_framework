@@ -5,7 +5,7 @@ from Tools import PatientEmulator
 
 
 def generate_patients(source='orpha', path='_emu', conds=100, patients_per_cond=3, lamb=1, ancestor_prob=0.5,
-                      noise_ptg=0, number_experiments_same_time=None):
+                      noise_ptg=0, n_same_time=None):
     emu = PatientEmulator(conds, patients_per_cond, lamb=lamb, ancestor_prob=ancestor_prob, noise_ptg=noise_ptg)
 
     if source == 'decipher' or source == 'all':
@@ -15,8 +15,8 @@ def generate_patients(source='orpha', path='_emu', conds=100, patients_per_cond=
 
     if source == 'orpha' or source == 'all':
         orpha_patients = emu.emulate_conditions('ORPHA')
-        if number_experiments_same_time:
-            with open(os.path.join(path, 'emu-orpha_'+number_experiments_same_time+'.json'), 'w') as fp:
+        if n_same_time:
+            with open(os.path.join(path, 'emu-orpha_'+n_same_time+'.json'), 'w') as fp:
                 json.dump(orpha_patients, fp, indent=2)
         else:
             with open(os.path.join(path, 'emu-orpha.json'), 'w') as fp:

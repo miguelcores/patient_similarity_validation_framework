@@ -23,7 +23,7 @@ patients_per_cond = 2
 lambs = [0, 1, 2, 3, 4, 5]
 enriched_embeddings = 'no'
 num_walks_list = [10, 20, 30]
-number_experiments_same_time = str(1)
+n_same_time = str(1)
 
 rows = []
 
@@ -32,11 +32,11 @@ for lamb in lambs:
         start_time_gen_patients = time.time()
         print('Generating patients...')
         generate_patients(source=source, conds=conds, patients_per_cond=patients_per_cond, lamb=lamb, noise_ptg=noise_ptg,
-                          number_experiments_same_time=number_experiments_same_time)
+                          n_same_time=n_same_time)
         amount_time_gen_patients = time.time()-start_time_gen_patients
 
         print('Generating patient files...')
-        gen_mapping_objects(source=source, number_experiments_same_time=number_experiments_same_time)
+        gen_mapping_objects(source=source, n_same_time=n_same_time)
 
         for num_walks in num_walks_list:
             exp_id = str(exp_int)
@@ -49,7 +49,8 @@ for lamb in lambs:
 
             print('Generating patient embeddings...')
             start_time_patient_embeddings = time.time()
-            gen_patient_embeddings(source=source, enriched=enriched_embeddings, EXP_ID=EXP_ID, exp_id=exp_id, exp_variable=str(num_walks))
+            gen_patient_embeddings(source=source, enriched=enriched_embeddings, EXP_ID=EXP_ID, exp_id=exp_id,
+                                   exp_variable=str(num_walks), n_same_time=n_same_time)
             amount_time_patient_embeddings = time.time()-start_time_patient_embeddings
 
             print('Generating Patient similarities...')
@@ -58,16 +59,16 @@ for lamb in lambs:
             metrics = '-s cos_sim ' #'-s jaccard -s resnik -s lin -s jc -s cos_sim '
             os.system('python -m patient_similarity --patient-file-format csv --log=ERROR '
                       + metrics +
-                      '../_data/patients/'+source+'_patients_phenotype.csv '
+                      '../_data/patients/'+source+'_patients_phenotype_'+n_same_time+'.csv '
                       '../_data/hpo/hp.obo ../_data/annotations/phenotype_annotation.tab '
-                      '../_data/patients/'+source+'_patient_embeddings.pkl '
+                      '../_data/patients/'+source+'_patient_embeddings_'+n_same_time+'.pkl '
                       '../_data/results/sims/'+source+'_patient_sims_'+EXP_ID+'_'+exp_id+'.pkl')
             amount_time_similarities = time.time() - start_time_similarities
             os.chdir('../')
 
             print('Adding results...')
             start_time_results = time.time()
-            experiment = ROC_AUC_EXPERIMENT(source=source, EXP_ID=EXP_ID, exp_id=exp_id)
+            experiment = ROC_AUC_EXPERIMENT(source=source, EXP_ID=EXP_ID, exp_id=exp_id, n_same_time=n_same_time)
             experiment_metadata, tpr, fpr = experiment.return_results()
             amount_time_results = time.time() - start_time_results
 

@@ -5,10 +5,12 @@ from Common import load_object
 
 
 class ROC_AUC_EXPERIMENT():
-    def __init__(self, source, EXP_ID, exp_id):
+    def __init__(self, source, EXP_ID, exp_id, n_same_time=None):
+        if n_same_time:
+            fl = './_data/patients/'+source+'_patients_disease_'+n_same_time+'.pkl'
+        else:
+            fl = './_data/patients/'+source+'_patients_disease.pkl'
         fn = './_data/results/sims/'+source+'_patient_sims_'+EXP_ID+'_'+exp_id+'.pkl'
-        # print(fn)
-        fl = './_data/patients/'+source+'_patients_disease.pkl'
         self.patient_similarities = load_object(fn)
         self.patients_disease = load_object(fl)
 
