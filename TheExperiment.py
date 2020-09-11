@@ -10,7 +10,7 @@ from Validation import ROC_AUC_EXPERIMENT
 
 start = time.time()
 
-EXP_ID = '60'
+EXP_ID = '28'
 
 number_experiments = 5
 exp_int = 0
@@ -84,10 +84,6 @@ for lamb in lambs:
         experiment_metadata['time_symptom_embeddings'] = amount_time_symptom_embeddings  # 'N/A'
         experiment_metadata['time_patient_embeddings'] = amount_time_patient_embeddings
         experiment_metadata['time_gen_patients'] = amount_time_gen_patients
-        experiment_metadata['graph'] = graph
-        experiment_metadata['p'] = p
-        experiment_metadata['q'] = q
-        experiment_metadata['num_walks'] = num_walks
         experiment_metadata['enriched_embeddings'] = enriched_embeddings
         rows.append(experiment_metadata)
         exp_int += 1

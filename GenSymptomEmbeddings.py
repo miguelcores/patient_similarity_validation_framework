@@ -11,6 +11,7 @@ Knowledge Discovery and Data Mining (KDD), 2016
 import networkx as nx
 from node2vec import node2vec
 from gensim.models import Word2Vec
+import time
 
 from Common import save_object
 
@@ -31,10 +32,13 @@ class genEmbeddings():
         self.workers = workers
         self.iter = iter
 
+        start = time.time()
         nx_G = self.read_graph()
         G = node2vec.Graph(nx_G, self.directed, self.p, self.q)
         G.preprocess_transition_probs()
+        print('time in preprocessing transition probs: {}'.format(time.time()-start))
         walks = G.simulate_walks(self.num_walks, self.walk_length)
+        print('time until simulating walks: {}'.format(time.time()-start))
         self.learn_embeddings(walks)
 
     def read_graph(self):

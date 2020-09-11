@@ -6,8 +6,9 @@ from Common import TextParser, load_object, save_object, writeline
 # '_data/annotations.pkl'
 # '_data/phenotype_annotation.tab'
 class PhenotypeAnnotationsParser():
-    def __init__(self, fn='_data/annotations/phenotype_annotation.tab'):
+    def __init__(self, terms_to_ignore, fn='_data/annotations/phenotype_annotation.tab'):
         ext = fn[-4:].lower()
+        self.terms_to_ignore = terms_to_ignore
         if ext == '.tab':
             self.__parse(fn)
         elif ext == '.pkl':
@@ -16,8 +17,8 @@ class PhenotypeAnnotationsParser():
             raise ValueError(F'Invalid file extension: Expected .obo or .pkl, found {ext}.')
 
     def __parse(self, fn):
-        df = pd.read_csv(fn, sep='\t', low_memory=False)
-        df = df[['#disease-db', 'reference', 'disease-name', 'HPO-ID', 'frequencyHPO']]
+        df = pd.read_csv(fn, sep='\t', low_memory=False, usecols=['#disease-db', 'reference', 'disease-name', 'HPO-ID', 'frequencyHPO'])
+        df = df[~df['HPO-ID'].isin(self.terms_to_ignore)]
         self.decipher = self.__get_annotations(df[df['#disease-db'] == 'DECIPHER'])
         self.orpha = self.__get_annotations(df[df['#disease-db'] == 'ORPHA'].groupby('reference').filter(lambda x: len(x) > 12))
         self.omim = self.__get_annotations(df[df['#disease-db'] == 'OMIM'])
@@ -56,8 +57,6 @@ class PhenotypeAnnotationsParser():
         for ann in self.omim:
             for hpo in self.omim[ann]['hpos']:
                 hpos.add(hpo)
-        for hpo in list(hpos):
-            ancestors = self
         return hpos
 
     def load_pkl(self, fn):

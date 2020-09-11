@@ -5,7 +5,7 @@ import time
 from Parsers import HpoParser, PhenotypeAnnotationsParser
 
 class genEdgeList():
-    def __init__(self, enrich, output):
+    def __init__(self, enrich, only_direct_is_a, output):
         self.hpos = HpoParser()
         self.hpos_df = pd.read_csv('./_data/hpo/hpo2int.csv', usecols=['Name', 'Id'])
         self.nodes = self.hpos_df.Id #getting all nodes
@@ -14,16 +14,26 @@ class genEdgeList():
         self.graph.add_nodes_from(self.nodes) #introducing all nodes in hpo.csv
         self.enrich = enrich
         self.output = output
+        self.only_direct_is_a = only_direct_is_a
+        all_bellow_0000118 = [descendant for descendant in self.hpos.get_descendants('HP:0000118')]
         t0 = time.time()
         '''
         for each phenotype in hpo.csv, get all its children and create edges
         (phenotype_i, children_j), but only if children exists in hpo.csv
         '''
-        for term in self.hpos_df.Name:
-            children = self.hpos.get_children(term)
-            for name in children:
-                if self.hpos_dict.get(name) is not None:
-                    self.graph.add_edge(self.hpos_dict[term], self.hpos_dict[name])
+
+        if self.only_direct_is_a:
+            for term in all_bellow_0000118:
+                children = self.hpos.get_children(term)
+                for name in children:
+                    if self.hpos_dict.get(name) is not None:
+                        self.graph.add_edge(self.hpos_dict[term], self.hpos_dict[name])
+        else:
+            for term in all_bellow_0000118:
+                children = [child for child in self.hpos.get_descendants(term)]
+                for name in children:
+                    if self.hpos_dict.get(name) is not None:
+                        self.graph.add_edge(self.hpos_dict[term], self.hpos_dict[name])
 
         if self.enrich:
             anns = PhenotypeAnnotationsParser()
@@ -62,4 +72,4 @@ class genEdgeList():
             self.enrich_from_annotations(array)
 
 
-genEdgeList(enrich=True, output="./_data/graph/hp-obo-orpha")
+genEdgeList(enrich=False, only_direct_is_a=True, output="./_data/graph/hp-obo-all-under-000118")

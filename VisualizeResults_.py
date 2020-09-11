@@ -7,54 +7,44 @@ from Validation import ROC_AUC_EXPERIMENT
 
 start = time.time()
 
-EXP_ID = '24'
+EXP_ID = '26'
 
-number_experiments = 4
+number_experiments = 5
 exp_int = 0
 source = 'orpha'
 walk_length = 50
 iterations = 1
-conds = 200
+conds = 150
 noise_ptg = 0 #[0, .2, .4, .6]
 patients_per_cond = 2
 lambs = [0, 1, 2, 3, 4, 5]
 enriched_embeddings = 'no'
-num_walks_list = [10, 20, 30]
-n_same_time = str(1)
 
 
-sim_names = {'cos_sim_10', 'cos_sim_20', 'cos_sim_30'}
+sim_names = {'cos_sim', 'jaccard_best_avg', 'resnik_best_avg', 'lin_best_avg', 'jc_best_avg'}
 fig, ax = plt.subplots(3, 2)
 i = 0
 
 for lamb in lambs:
-    aucs = {'cos_sim_10': [], 'cos_sim_20': [], 'cos_sim_30': []}
-    tprs = {'cos_sim_10': [], 'cos_sim_20': [], 'cos_sim_30': []}
-    fprs = {'cos_sim_10': [], 'cos_sim_20': [], 'cos_sim_30': []}
+    aucs = {'cos_sim': [], 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
+    tprs = {'cos_sim': [], 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
+    fprs = {'cos_sim': [], 'jaccard_best_avg': [], 'resnik_best_avg': [], 'lin_best_avg': [], 'jc_best_avg': []}
     interp_tpr = {}
     mean_fpr = np.linspace(0, 1, 100)
     for exp in range(number_experiments):
-        experiment_metadata_ = {'cos_sim_10': {}, 'cos_sim_20': {}, 'cos_sim_30': {}}
-        tpr_ = {'cos_sim_10': {}, 'cos_sim_20': {}, 'cos_sim_30': {}}
-        fpr_ = {'cos_sim_10': {}, 'cos_sim_20': {}, 'cos_sim_30': {}}
-        for num_walks in num_walks_list:
-            exp_id = str(exp_int)
-            print('Adding results...')
-            start_time_results = time.time()
-            experiment = ROC_AUC_EXPERIMENT(source=source, EXP_ID=EXP_ID, exp_id=exp_id, n_same_time=n_same_time)
-            experiment_metadata, tpr, fpr = experiment.return_results()
-            experiment_metadata_['cos_sim_'+str(num_walks)] = experiment_metadata['cos_sim']
-            tpr_['cos_sim_'+str(num_walks)] = tpr['cos_sim']
-            fpr_['cos_sim_'+str(num_walks)] = fpr['cos_sim']
-            exp_int += 1
-
+        exp_id = str(exp_int)
+        print('Adding results...')
+        start_time_results = time.time()
+        experiment = ROC_AUC_EXPERIMENT(source=source, EXP_ID=EXP_ID, exp_id=exp_id)
+        experiment_metadata, tpr, fpr = experiment.return_results()
         for sim in sim_names:
-            interp_tpr[sim] = np.interp(mean_fpr, fpr_[sim], tpr_[sim])
+            interp_tpr[sim] = np.interp(mean_fpr, fpr[sim], tpr[sim])
             interp_tpr[sim][0] = 0.0
             tprs[sim].append(interp_tpr[sim])
-            aucs[sim].append(experiment_metadata_[sim])
+            aucs[sim].append(experiment_metadata[sim])
 
         amount_time_results = time.time() - start_time_results
+        exp_int += 1
 
     if i == 0:
         axis = ax[i, i]
@@ -93,7 +83,7 @@ for lamb in lambs:
 
     axis.plot([0, 1], [0, 1], linestyle='--', lw=2)
     axis.set(xlim=[-0.05, 1.05], ylim=[-0.05, 1.05],
-           title="Lambda={} ; {}% as many noise terms added".format(lamb, noise_ptg*100))
+           title="{}% as many noise terms added".format(noise_ptg*100))
     axis.legend(loc="lower right")
 
     i += 1
