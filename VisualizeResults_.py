@@ -7,7 +7,7 @@ from Validation import ROC_AUC_EXPERIMENT
 
 start = time.time()
 
-EXP_ID = '26'
+EXP_ID = '60'
 
 number_experiments = 5
 exp_int = 0
@@ -83,7 +83,7 @@ for lamb in lambs:
 
     axis.plot([0, 1], [0, 1], linestyle='--', lw=2)
     axis.set(xlim=[-0.05, 1.05], ylim=[-0.05, 1.05],
-           title="{}% as many noise terms added".format(noise_ptg*100))
+           title="Lambda={} ; {}% as many noise terms added".format(lamb, noise_ptg*100))
     axis.legend(loc="lower right")
 
     i += 1

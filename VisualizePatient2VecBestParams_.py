@@ -17,14 +17,14 @@ iterations = 1
 conds = 200
 noise_ptg = 0 #[0, .2, .4, .6]
 patients_per_cond = 2
-lambs = [0, 1, 2, 3]#, 3, 4, 5]
+lambs = [0, 1, 2, 3, 4, 5]
 enriched_embeddings = 'no'
 num_walks_list = [10, 20]#, 30]
 n_same_time = str(1)
 
 
 sim_names = {'cos_sim_10', 'cos_sim_20'}
-fig, ax = plt.subplots(2, 2)
+fig, ax = plt.subplots(3, 2)
 i = 0
 
 for lamb in lambs:
@@ -64,10 +64,10 @@ for lamb in lambs:
         axis = ax[1, 0]
     elif i == 3:
         axis = ax[1, 1]
-    # elif i == 4:
-    #     axis = ax[2, 0]
-    # elif i == 5:
-    #     axis = ax[2, 1]
+    elif i == 4:
+        axis = ax[2, 0]
+    elif i == 5:
+        axis = ax[2, 1]
 
     mean_tpr = {}
     mean_auc = {}
