@@ -7,12 +7,12 @@ from Parsers import HpoParser, PhenotypeAnnotationsParser
 
 
 class PatientEmulator():
-    def __init__(self, conds=200, patients_per_cond=3, lamb=3, ancestor_prob=0.5, noise_ptg=0.5):
+    def __init__(self, conds=200, patients_per_cond=3, lamb=3, noise_ptg=0.5):
         self.hpos = HpoParser()
         self.terms_to_ignore = self.get_terms_to_ignore()
         self.anns = PhenotypeAnnotationsParser(terms_to_ignore=self.terms_to_ignore)
         self.eligibles = list(self.__build_eligibles(self.hpos, self.anns))
-        self.ancestor_prob = ancestor_prob
+        # self.ancestor_prob = ancestor_prob
         self.lamb = lamb
         self.conds = conds
         self.patients_per_cond = patients_per_cond
@@ -32,12 +32,15 @@ class PatientEmulator():
             hpos.append(self.eligibles_now[ix])
         return hpos
 
-    def __random_ancestor(self, hpo, prob):
-        if random() <= prob:
-            ancestors = self.hpos.get_ancestors(hpo)
-            ix = int(random() * len(ancestors))
-            return ancestors[ix]
-        return hpo
+    # def __random_ancestor(self, hpo, prob):
+    #     if random() <= prob:
+    #         ancestors = self.hpos.get_ancestors(hpo)
+    #         ix = int(random() * len(ancestors))
+    #         return ancestors[ix]
+    #     return hpo
+    #
+    # def __random_ancestors(self, hpos, prob):
+    #     return [self.__random_ancestor(hpo, prob) for hpo in hpos]
 
     def __poisson_ancestor(self, hpo, lamb, aux=None):
         ancestors = self.hpos.get_ancestors(hpo)
@@ -61,9 +64,6 @@ class PatientEmulator():
                 return ancestor
             else:
                 return self.__poisson_ancestor(hpo, lamb, aux='1')
-
-    def __random_ancestors(self, hpos, prob):
-        return [self.__random_ancestor(hpo, prob) for hpo in hpos]
 
     def __poisson_ancestors(self, hpos, lamb):
         return [self.__poisson_ancestor(hpo, lamb) for hpo in hpos]
