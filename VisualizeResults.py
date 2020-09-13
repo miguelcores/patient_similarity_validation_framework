@@ -7,7 +7,7 @@ from Validation import ROC_AUC_EXPERIMENT
 
 start = time.time()
 
-EXP_ID = '26'
+EXP_ID = '40'
 
 number_experiments = 5
 exp_int = 0

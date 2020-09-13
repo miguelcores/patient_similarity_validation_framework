@@ -27,11 +27,11 @@ p = 1
 q = .05
 graph = 'hp-obo-all-under-000118-linked.edgelist'
 
-# print('Generating embeddings...')
-# start_time_symptom_embeddings = time.time()
-# genEmbeddings(input='_data/graph/'+graph, output='_data/emb/hp-obo_'+EXP_ID+'_'+str(exp_int)+'.emb',
-#               walk_length=walk_length, iter=iterations, num_walks=num_walks)
-# amount_time_symptom_embeddings = time.time()-start_time_symptom_embeddings
+print('Generating embeddings...')
+start_time_symptom_embeddings = time.time()
+genEmbeddings(input='_data/graph/'+graph, output='_data/emb/hp-obo_'+int(EXP_INT)+'_'+str(exp_int)+'.emb',
+              walk_length=walk_length, iter=iterations, num_walks=num_walks)
+amount_time_symptom_embeddings = time.time()-start_time_symptom_embeddings
 
 for lamb in lambs:
     EXP_ID = str(EXP_INT)
