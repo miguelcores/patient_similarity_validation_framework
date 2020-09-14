@@ -103,7 +103,6 @@ class PatientEmulator():
     def emulate_condition(self, source, name, describe=False):
         self.eligibles_now = self.eligibles
         cond = {}
-        # hpos = self.__random_ancestors(cond['hpos'], self.ancestor_prob)
         tries = 0
         hpos = self.get_symptoms_by_frequency(source, name, tries)
         hpos = self.__poisson_ancestors(hpos, self.lamb)
