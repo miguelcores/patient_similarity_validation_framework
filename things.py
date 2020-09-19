@@ -31,28 +31,6 @@ for i in data.Id:
 
 save_object(translator, '../_data/hp-obo-translator.pkl')
 
-{'name2id': {'HP:0000001': 0,
-  'HP:0000002': 1,
-  'HP:0000003': 2,
-  'HP:0000005': 3,
-  'HP:0000006': 4,
-  'HP:0000007': 5,
-  ...},
- 'id2name': {0: 'HP:0000001',
-  1: 'HP:0000002',
-  2: 'HP:0000003',
-  3: 'HP:0000005',
-  4: 'HP:0000006',
-  5: 'HP:0000007',
-  ...},
- 'id2desc': {0: 'All',
-  1: 'Abnormality of body height',
-  2: 'Multicystic kidney dysplasia',
-  3: 'Mode of inheritance',
-  4: 'Autosomal dominant inheritance',
-  5: 'Autosomal recessive inheritance',
-  ...}}
-#
 # from Common import utils
 # import pprint
 #

@@ -1,32 +1,43 @@
-import os
 import pandas as pd
 
-from Common import TextParser, load_object, save_object, writeline
+from Common import load_object, save_object
 
-# '_data/annotations.pkl'
-# '_data/phenotype_annotation.tab'
 class PhenotypeAnnotationsParser():
-    def __init__(self, terms_to_ignore, fn='_data/annotations/phenotype_annotation.tab'):
+    def __init__(self, terms_to_ignore, term_threshold=12,
+                 fn='_data/annotations/phenotype_annotation.tab'):
         ext = fn[-4:].lower()
+        self.t_h = term_threshold
         self.terms_to_ignore = terms_to_ignore
         if ext == '.tab':
             self.__parse(fn)
         elif ext == '.pkl':
             self.load_pkl(fn)
         else:
-            raise ValueError(F'Invalid file extension: Expected .obo or .pkl, found {ext}.')
+            raise ValueError(
+                F'Invalid file extension: Expected .tab or .pkl, found {ext}.'
+            )
 
     def __parse(self, fn):
-        df = pd.read_csv(fn, sep='\t', low_memory=False, usecols=['#disease-db', 'reference', 'disease-name', 'HPO-ID', 'frequencyHPO'])
+        df = pd.read_csv(fn, sep='\t', low_memory=False,
+                         usecols=['#disease-db', 'reference', 'disease-name',
+                                  'HPO-ID', 'frequencyHPO'])
         df = df[~df['HPO-ID'].isin(self.terms_to_ignore)]
-        self.decipher = self.__get_annotations(df[df['#disease-db'] == 'DECIPHER'])
-        self.orpha = self.__get_annotations(df[df['#disease-db'] == 'ORPHA'].groupby('reference').filter(lambda x: len(x) > 12))
-        self.omim = self.__get_annotations(df[df['#disease-db'] == 'OMIM'])
+        self.decipher = self.__get_annotations(
+            df[df['#disease-db'] == 'DECIPHER'].groupby('reference').filter(
+                lambda x: len(x) > self.t_h)
+        )
+        self.orpha = self.__get_annotations(
+            df[df['#disease-db'] == 'ORPHA'].groupby('reference').filter(
+                lambda x: len(x) > self.t_h)
+        )
+        self.omim = self.__get_annotations(
+            df[df['#disease-db'] == 'OMIM'].groupby('reference').filter(
+                lambda x: len(x) > self.t_h)
+        )
 
     def __get_annotations(self, df):
         anns = {}
         gb = df.groupby('reference')
-        # print(gb)
         for name, group in gb:
             desc = group['disease-name'].values[0]
             hpos = group['HPO-ID'].tolist()
