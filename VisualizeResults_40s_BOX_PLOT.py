@@ -1,3 +1,9 @@
+'''
+    THIS SCRIPT IS AN EXAMPLE OF HOW TO USE THE BOXPLOT_DATA
+    CLASS TO VISUALIZE A SERIES OF EXPERIMENT RESULTS
+'''
+
+
 import time
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -42,8 +48,10 @@ for lamb in lambs:
 
         rows = []
         for j in range(len(cos_sim_r)):
-            rows.append({'cos_sim': cos_sim_r[j], 'jaccard_best_avg': jaccard_best_avg_r[j],
-                        'resnik_best_avg': resnik_best_avg_r[j], 'lin_best_avg': lin_best_avg_r[j],
+            rows.append({'cos_sim': cos_sim_r[j],
+                         'jaccard_best_avg': jaccard_best_avg_r[j],
+                        'resnik_best_avg': resnik_best_avg_r[j],
+                        'lin_best_avg': lin_best_avg_r[j],
                         'jc_best_avg': jc_best_avg_r[j]})
 
         data = pd.DataFrame(rows)
@@ -68,18 +76,4 @@ for lamb in lambs:
     plt.show()
     EXP_INT+=1
 
-
 print(time.time()-start)
-
-# cos_sim, jaccard_best_avg, resnik_best_avg, lin_best_avg, jc_best_avg = BOXPLOT_DATA(source='orpha', EXP_ID='40', exp_id='0').get_results()
-#
-# rows = []
-# for i in range(len(cos_sim)):
-#     rows.append({'cos_sim': cos_sim[i], 'jaccard_best_avg': jaccard_best_avg[i],
-#                 'resnik_best_avg': resnik_best_avg[i], 'lin_best_avg': lin_best_avg[i],
-#                 'jc_best_avg': jc_best_avg[i]})
-#
-# data = pd.DataFrame(rows)
-#
-# ax = sns.boxplot(data=data, orient="h", palette="Set2")
-# plt.show()

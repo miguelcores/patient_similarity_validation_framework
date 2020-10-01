@@ -28,7 +28,7 @@ class PhenotypeAnnotationsParser():
         )
         self.orpha = self.__get_annotations(
             df[df['#disease-db'] == 'ORPHA'].groupby('reference').filter(
-                lambda x: len(x) > self.t_h)
+                lambda x: len(x) < self.t_h)
         )
         self.omim = self.__get_annotations(
             df[df['#disease-db'] == 'OMIM'].groupby('reference').filter(

@@ -34,3 +34,6 @@ def generate_patients(source='orpha', path='_emu', conds=100, patients_per_cond=
         decipher_patients.update(orpha_patients)
         decipher_patients.update(omim_patients)
         save_patients_json(decipher_patients, path, source, n_same_time)
+
+
+generate_patients(source='orpha', conds=3, patients_per_cond=2, lamb=1, noise_ptg=.3)

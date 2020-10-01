@@ -9,4 +9,8 @@ _data/walks/
 Notebooks
 things.py
 other_sims.pkl
+commands.txt
+GenGraph_.py
+VisualizePatient2VecBestParams_.py
+ExperimentDraft_40.py
 
